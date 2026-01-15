@@ -10,7 +10,8 @@
     "tag": "tsx scripts/auto-tag.ts",
     "build:index": "tsx scripts/build-search-index.ts",
     "dev": "vite",
-    "build": "npm run build:index && vite build",
+    "build": "vite build",
+    "build:local": "npm run build:index && vite build",
     "preview": "vite preview"
   },
   "dependencies": {
