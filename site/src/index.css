@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #6d28d9;
+  --color-primary-light: #8b5cf6;
+}
+
+body {
+  @apply bg-gray-50 text-gray-900 antialiased;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+
+.font-serif {
+  font-family: 'Crimson Pro', Georgia, serif;
+}
+
+/* Prose styling for article content */
+.prose {
+  @apply max-w-none;
+}
+
+.prose h1 {
+  @apply text-3xl font-serif font-semibold mt-8 mb-4;
+}
+
+.prose h2 {
+  @apply text-2xl font-serif font-semibold mt-8 mb-4;
+}
+
+.prose h3 {
+  @apply text-xl font-serif font-semibold mt-6 mb-3;
+}
+
+.prose p {
+  @apply mb-4 leading-relaxed;
+}
+
+.prose a {
+  @apply text-purple-700 hover:text-purple-900 underline;
+}
+
+.prose ul, .prose ol {
+  @apply mb-4 ml-6;
+}
+
+.prose li {
+  @apply mb-2;
+}
+
+.prose ul li {
+  @apply list-disc;
+}
+
+.prose ol li {
+  @apply list-decimal;
+}
+
+.prose blockquote {
+  @apply border-l-4 border-purple-300 pl-4 italic text-gray-700 my-4;
+}
+
+.prose code {
+  @apply bg-gray-100 px-1.5 py-0.5 rounded text-sm;
+}
+
+.prose pre {
+  @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto my-4;
+}
+
+.prose pre code {
+  @apply bg-transparent p-0;
+}
+
+.prose img {
+  @apply rounded-lg my-4;
+}
+
+.prose hr {
+  @apply my-8 border-gray-200;
+}

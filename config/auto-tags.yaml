@@ -1,0 +1,51 @@
+# Auto-tagging rules
+# Applied automatically when scraping articles
+
+# URL-based rules (applied by domain)
+url_rules:
+  - pattern: "fs.blog"
+    add_tags: 
+      - "source:fs-blog"
+  
+  - pattern: "lesswrong.com"
+    add_tags: 
+      - "source:lesswrong"
+  
+  - pattern: "paulgraham.com"
+    add_tags: 
+      - "source:paul-graham"
+
+# Content-based rules (keyword matching)
+content_rules:
+  - keywords: ["mental model", "mental models"]
+    add_tags: ["mental-models"]
+    
+  - keywords: ["Charlie Munger", "Munger"]
+    add_tags: ["munger"]
+    
+  - keywords: ["Warren Buffett", "Buffett"]
+    add_tags: ["buffett"]
+    
+  - keywords: ["first principles", "first-principles"]
+    add_tags: ["first-principles", "thinking"]
+    
+  - keywords: ["inversion", "invert"]
+    add_tags: ["inversion", "thinking"]
+    
+  - keywords: ["circle of competence"]
+    add_tags: ["circle-of-competence", "self-awareness"]
+    
+  - keywords: ["decision", "decisions", "deciding", "decision-making"]
+    add_tags: ["decision-making"]
+    
+  - keywords: ["cognitive bias", "biases", "bias"]
+    add_tags: ["cognitive-biases", "thinking"]
+    
+  - keywords: ["second-order", "second order"]
+    add_tags: ["second-order-thinking", "thinking"]
+    
+  - keywords: ["compounding", "compound"]
+    add_tags: ["compounding"]
+    
+  - keywords: ["reading", "books", "learning"]
+    add_tags: ["learning"]

@@ -1,0 +1,30 @@
+# Site-specific content extractors
+# CSS selectors for extracting content from different sites
+
+extractors:
+  # Farnam Street
+  fs.blog:
+    content: "article.post, .entry-content, .post-content"
+    title: "h1.entry-title, h1.post-title, h1"
+    author: ".author-name, .byline"
+    date: ".post-date, .entry-date, time"
+    
+  # LessWrong
+  lesswrong.com:
+    content: ".PostsPage-postContent, .posts-page-content"
+    title: "h1.PostsPageTitle-title, h1"
+    author: ".UsersNameDisplay-userName"
+    date: ".PostsPageDate-date"
+    
+  # Paul Graham essays
+  paulgraham.com:
+    content: "table table font"
+    title: "title"
+    author: null  # Always Paul Graham
+    
+  # Default fallback
+  default:
+    content: "article, .post-content, .entry-content, .content, main, .article-body"
+    title: "h1, .post-title, .entry-title, title"
+    author: ".author, .byline, .author-name"
+    date: "time, .date, .post-date"
