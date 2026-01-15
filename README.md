@@ -83,11 +83,33 @@ Your content here...
 
 ## Deployment
 
-Build and deploy to Cloudflare Pages:
+The site is hosted on Cloudflare Pages and auto-deploys when you push to GitHub.
+
+### Adding New Content to Production
 
 ```bash
-npm run build
-# Deploy site/dist to Cloudflare Pages
+# 1. Add URLs and scrape
+echo "https://fs.blog/some-article/" >> input/urls.txt
+npm run convert
+npm run scrape
+
+# 2. Rebuild the search index
+npm run build:index
+
+# 3. Push to GitHub (triggers Cloudflare deploy)
+git add public/search-index.json
+git commit -m "Add new articles"
+git push
+```
+
+Cloudflare will automatically build and deploy within ~2 minutes.
+
+### Local Development
+
+```bash
+npm run dev          # Start dev server at localhost:5173
+npm run build        # Build for production (site/dist)
+npm run preview      # Preview production build locally
 ```
 
 ## Configuration

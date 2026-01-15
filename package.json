@@ -8,6 +8,7 @@
     "scrape": "tsx scripts/scrape.ts",
     "scrape:one": "tsx scripts/scrape.ts --url",
     "tag": "tsx scripts/auto-tag.ts",
+    "enrich": "tsx scripts/enrich.ts",
     "build:index": "tsx scripts/build-search-index.ts",
     "dev": "vite",
     "build": "vite build",
@@ -15,6 +16,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@google/generative-ai": "^0.24.1",
     "cheerio": "^1.0.0-rc.12",
     "fuse.js": "^7.0.0",
     "gray-matter": "^4.0.3",

@@ -16,6 +16,14 @@ interface Article {
   tags: string[];
   reading_time?: string;
   content: string;
+  // AI-enriched fields
+  summary?: string;
+  highlights?: string[];
+  topic?: string;
+  secondary_topic?: string | null;
+  related_concepts?: string[];
+  scope?: string;
+  anti_pattern?: string;
 }
 
 interface SearchIndex {
@@ -129,6 +137,73 @@ export default function Article() {
             </div>
           )}
         </header>
+        
+        {/* AI-enriched summary and highlights */}
+        {(article.summary || (article.highlights && article.highlights.length > 0)) && (
+          <div className="mb-10 p-6 bg-purple-50 rounded-lg border border-purple-100">
+            {article.summary && (
+              <div className="mb-4">
+                <h2 className="text-sm font-semibold text-purple-900 uppercase tracking-wide mb-2">
+                  TL;DR
+                </h2>
+                <p className="text-gray-700 leading-relaxed">
+                  {article.summary}
+                </p>
+              </div>
+            )}
+            
+            {article.highlights && article.highlights.length > 0 && (
+              <div className="mb-4">
+                <h2 className="text-sm font-semibold text-purple-900 uppercase tracking-wide mb-2">
+                  Key Takeaways
+                </h2>
+                <ul className="space-y-2">
+                  {article.highlights.map((highlight, index) => (
+                    <li key={index} className="flex items-start gap-2 text-gray-700">
+                      <span className="text-purple-500 mt-1">•</span>
+                      <span>{highlight}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            
+            {/* When to Use / When NOT to Use */}
+            {(article.scope || article.anti_pattern) && (
+              <div className="grid md:grid-cols-2 gap-4 pt-4 border-t border-purple-200">
+                {article.scope && (
+                  <div>
+                    <h3 className="text-sm font-semibold text-green-700 mb-1">✓ When to Use</h3>
+                    <p className="text-sm text-gray-600">{article.scope}</p>
+                  </div>
+                )}
+                {article.anti_pattern && (
+                  <div>
+                    <h3 className="text-sm font-semibold text-red-700 mb-1">✗ Common Mistake</h3>
+                    <p className="text-sm text-gray-600">{article.anti_pattern}</p>
+                  </div>
+                )}
+              </div>
+            )}
+            
+            {/* Related Concepts */}
+            {article.related_concepts && article.related_concepts.length > 0 && (
+              <div className="pt-4 border-t border-purple-200 mt-4">
+                <h3 className="text-sm font-semibold text-purple-900 mb-2">Related Concepts</h3>
+                <div className="flex flex-wrap gap-2">
+                  {article.related_concepts.map((concept) => (
+                    <span 
+                      key={concept}
+                      className="text-xs px-2 py-1 bg-purple-100 text-purple-700 rounded-full"
+                    >
+                      {concept}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
         
         {/* Article content */}
         <article className="prose prose-lg">
