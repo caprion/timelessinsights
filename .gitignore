@@ -4,21 +4,38 @@ node_modules/
 # Build output
 site/dist/
 
-# Environment
+# ===========================================
+# LOCAL ONLY - Not pushed to GitHub
+# ===========================================
+
+# Scraped content (your personal library)
+content/
+
+# URL inputs and source registry
+input/
+
+# Scraping scripts (local tools)
+scripts/
+
+# Configuration files (local settings)
+config/
+
+# Planning docs
+docs/
+
+# ===========================================
+# Environment & System
+# ===========================================
 .env
 .env.local
-
-# IDE
 .idea/
 *.swp
 *.swo
-
-# OS
 .DS_Store
 Thumbs.db
-
-# Logs
 *.log
 
-# Search index (generated)
-public/search-index.json
+# Lock files (use package-lock.json only)
+bun.lockb
+yarn.lock
+pnpm-lock.yaml

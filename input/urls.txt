@@ -1,5 +1,0 @@
-# TimelessInsights - URL Queue
-# Add URLs here, one per line
-# Run: npm run convert (to add to sources.yaml)
-# Run: npm run scrape (to fetch and save)
-
