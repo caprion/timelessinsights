@@ -15,7 +15,7 @@ export default function Header() {
         </Link>
         
         <nav className="flex items-center gap-6">
-          <SisterSite label="What I Write" url="https://againstenthropy.pages.dev/" />
+          <SisterSite label="What I Write" url="https://againstentropy.pages.dev/" />
           <Link 
             to="/browse" 
             className="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-stone-400 dark:hover:text-stone-200 transition-colors"
