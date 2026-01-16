@@ -6,6 +6,7 @@
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import YAML from 'yaml';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 // Load environment variables from .env.local
@@ -20,20 +21,34 @@ if (fs.existsSync(envPath)) {
   });
 }
 
-const CONTENT_DIR = './content';
-const MAX_CONTENT_LENGTH = 6000; // Truncate to manage tokens
-const DELAY_MS = 12000; // 12 seconds between requests
+// Load enrichment config
+interface EnrichConfig {
+  max_content_length: number;
+  delay_ms: number;
+  topics: string[];
+  prompt: string;
+}
 
-const TOPICS = [
-  'mental-models',
-  'decision-making', 
-  'learning',
-  'productivity',
-  'investing',
-  'psychology',
-  'leadership',
-  'communication'
-] as const;
+const CONFIG_PATH = './config/enrich.yaml';
+const config = YAML.parse(fs.readFileSync(CONFIG_PATH, 'utf-8')) as EnrichConfig;
+
+const CONTENT_DIR = './content';
+const MAX_CONTENT_LENGTH = config.max_content_length; // From config (default: 60000)
+const OLD_CONTENT_LENGTH = 6000; // Previous limit - for detecting truncated articles
+const DELAY_MS = config.delay_ms; // From config (default: 12000)
+const TOPICS = config.topics as readonly string[];
+const PROMPT = config.prompt;
+
+// CLI flags
+const FORCE_ALL = process.argv.includes('--force');
+const FORCE_TRUNCATED = process.argv.includes('--force-truncated');
+const TODAY = new Date().toISOString().split('T')[0];
+
+// Parse --files flag for specific articles
+const filesArgIndex = process.argv.indexOf('--files');
+const SPECIFIC_FILES: string[] = filesArgIndex !== -1 && process.argv[filesArgIndex + 1]
+  ? process.argv[filesArgIndex + 1].split(',')
+  : [];
 
 type Topic = typeof TOPICS[number];
 
@@ -46,39 +61,6 @@ interface EnrichmentResult {
   scope: string;
   anti_pattern: string;
 }
-
-// Unified prompt for all providers
-const PROMPT = `Extract metadata from the article below for a knowledge base.
-
-Return ONLY valid JSON. No markdown. No explanation.
-
-{
-  "summary": "Core principle in 1-2 sentences (20-50 words)",
-  "highlights": ["actionable takeaway 1", "actionable takeaway 2", "actionable takeaway 3"],
-  "topic": "mental-models|decision-making|learning|productivity|investing|psychology|leadership|communication",
-  "secondary_topic": "same options or null",
-  "related_concepts": ["kebab-case-concept-1", "kebab-case-concept-2"],
-  "scope": "When/where this insight applies (1 sentence)",
-  "anti_pattern": "How people commonly misapply this (1 sentence)"
-}
-
-RULES:
-1. summary: State the mechanism, not a title restatement
-2. highlights: Exactly 3. Each useful standalone.
-3. topic: Pick ONE from the list
-4. secondary_topic: Only if >30% content overlap, else null
-5. related_concepts: 2-4 items, kebab-case
-6. scope: Boundary condition for application
-7. anti_pattern: Common misuse pattern
-
-Before responding, verify:
-- JSON is syntactically valid
-- topic matches allowed list exactly
-- highlights has exactly 3 items
-
-ARTICLE:
-"""
-`;
 
 // Provider definitions
 type ProviderName = 'gemini' | 'groq';
@@ -220,13 +202,13 @@ function validateEnrichment(enrichment: EnrichmentResult): EnrichmentResult {
   return enrichment;
 }
 
-async function enrichArticle(filePath: string, maxRetries: number = 2): Promise<{ success: boolean; provider?: ProviderName }> {
+async function enrichArticle(filePath: string, force: boolean = false, maxRetries: number = 2): Promise<{ success: boolean; provider?: ProviderName; skipped?: boolean }> {
   const content = fs.readFileSync(filePath, 'utf-8');
   const parsed = matter(content);
   
-  // Skip if already enriched
-  if (parsed.data.enriched_at) {
-    return { success: false };
+  // Skip if already enriched (unless forced)
+  if (parsed.data.enriched_at && !force) {
+    return { success: false, skipped: true };
   }
   
   // Truncate content to manage tokens
@@ -252,6 +234,15 @@ async function enrichArticle(filePath: string, maxRetries: number = 2): Promise<
       parsed.data.scope = enrichment.scope;
       parsed.data.anti_pattern = enrichment.anti_pattern;
       parsed.data.enriched_at = new Date().toISOString().split('T')[0];
+      
+      // Track content coverage
+      const fullLength = parsed.content.length;
+      parsed.data.content_coverage = truncatedContent.length >= fullLength ? 'full' : 'partial';
+      if (parsed.data.content_coverage === 'partial') {
+        parsed.data.content_analyzed = `${Math.round(truncatedContent.length / fullLength * 100)}%`;
+      } else {
+        delete parsed.data.content_analyzed;
+      }
       
       // Write back
       const newContent = matter.stringify(parsed.content, parsed.data);
@@ -307,18 +298,73 @@ async function main() {
     .filter(f => f.endsWith('.md'))
     .map(f => path.join(CONTENT_DIR, f));
   
-  // Count how many need enrichment
-  const needsEnrichment = files.filter(f => {
+// Determine which articles need enrichment
+  const articleInfo = files.map(f => {
     const content = fs.readFileSync(f, 'utf-8');
     const parsed = matter(content);
-    return !parsed.data.enriched_at;
+    const bodyLength = parsed.content.length;
+    const wasTruncated = bodyLength > OLD_CONTENT_LENGTH;
+    const enrichedAt = parsed.data.enriched_at || null;
+    const enrichedToday = enrichedAt === TODAY;
+    return {
+      path: f,
+      name: path.basename(f, '.md'),
+      enriched: !!enrichedAt,
+      enrichedToday,
+      wasTruncated,
+      bodyLength
+    };
   });
-  
+
+  let needsEnrichment: string[];
+  let mode: string;
+
+  if (SPECIFIC_FILES.length > 0) {
+    // Filter to only specified files, force re-enrich them
+    needsEnrichment = articleInfo
+      .filter(a => SPECIFIC_FILES.includes(a.name) && !a.enrichedToday)
+      .map(a => a.path);
+    mode = 'specific';
+  } else if (FORCE_ALL) {
+    needsEnrichment = files;
+    mode = 'force-all';
+  } else if (FORCE_TRUNCATED) {
+    // Skip ones already enriched today
+    needsEnrichment = articleInfo
+      .filter(a => (!a.enriched || a.wasTruncated) && !a.enrichedToday)
+      .map(a => a.path);
+    mode = 'force-truncated';
+  } else {
+    needsEnrichment = articleInfo
+      .filter(a => !a.enriched)
+      .map(a => a.path);
+    mode = 'normal';
+  }
+
+  const truncatedCount = articleInfo.filter(a => a.enriched && a.wasTruncated && !a.enrichedToday).length;
+  const enrichedCount = articleInfo.filter(a => a.enriched).length;
+  const enrichedTodayCount = articleInfo.filter(a => a.enrichedToday).length;
+
   console.log(`📁 Found ${files.length} articles`);
-  console.log(`🔄 ${needsEnrichment.length} need enrichment\n`);
+  console.log(`   Already enriched: ${enrichedCount} (${enrichedTodayCount} today)`);
+  console.log(`   Still need full-content enrichment: ${truncatedCount}`);
   
+  if (mode === 'specific') {
+    console.log(`\n🎯 --files: Processing ${needsEnrichment.length} specific articles\n`);
+  } else if (mode === 'force-all') {
+    console.log(`\n🔄 --force: Re-enriching ALL ${needsEnrichment.length} articles\n`);
+  } else if (mode === 'force-truncated') {
+    console.log(`\n🔄 --force-truncated: Re-enriching ${needsEnrichment.length} articles (new + truncated)\n`);
+  } else {
+    console.log(`\n🔄 ${needsEnrichment.length} need enrichment\n`);
+  }
+
   if (needsEnrichment.length === 0) {
     console.log('✅ All articles already enriched!');
+    if (truncatedCount > 0) {
+      console.log(`\n💡 ${truncatedCount} articles were truncated at 6K chars.`);
+      console.log('   Run with --force-truncated to re-enrich them with full content.');
+    }
     return;
   }
   
@@ -330,15 +376,22 @@ async function main() {
     const file = needsEnrichment[i];
     const fileName = path.basename(file, '.md');
     
-    console.log(`[${i + 1}/${needsEnrichment.length}] ${fileName}`);
+    // Estimate tokens for this article
+    const fileContent = fs.readFileSync(file, 'utf-8');
+    const fileParsed = matter(fileContent);
+    const bodyLen = Math.min(fileParsed.content.length, MAX_CONTENT_LENGTH);
+    const estTokens = Math.round(bodyLen / 4);
     
-    const result = await enrichArticle(file);
+    console.log(`[${i + 1}/${needsEnrichment.length}] ${fileName} (~${estTokens} tokens)`);
+    
+    const forceThis = FORCE_ALL || FORCE_TRUNCATED || SPECIFIC_FILES.length > 0;
+    const result = await enrichArticle(file, forceThis);
     
     if (result.success && result.provider) {
       enriched++;
       providerStats[result.provider]++;
       console.log(`   ✅ Enriched via ${result.provider}`);
-    } else {
+    } else if (!result.skipped) {
       failed++;
     }
     
