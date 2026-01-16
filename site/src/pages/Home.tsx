@@ -53,14 +53,14 @@ export default function Home() {
       <section className="py-16 md:py-24">
         <div className="max-w-3xl mx-auto px-4 text-center">
           <p className="text-sm uppercase tracking-widest text-purple-600 dark:text-purple-400 mb-4">
-            Personal Blog
+            Personal Knowledge Library
           </p>
           <h1 className="font-serif text-4xl md:text-5xl font-semibold text-gray-900 dark:text-stone-100 mb-6">
-            My thoughts on <br className="hidden md:block" />
-            <span className="italic">things that matter</span>
+            Timeless ideas for <br className="hidden md:block" />
+            <span className="italic">clearer thinking</span>
           </h1>
           <p className="text-lg text-gray-600 dark:text-stone-300 max-w-xl mx-auto mb-10">
-            Ideas, reflections, and lessons learned along the way.
+            Curated articles on mental models, decision-making, and wisdom from the world's best thinkers.
           </p>
           
           {!loading && index && (
