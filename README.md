@@ -48,7 +48,7 @@ timelessinsights/
 └── public/              # Static assets
 ```
 
-## Scripts
+    ## Scripts
 
 | Command | Description |
 |---------|-------------|

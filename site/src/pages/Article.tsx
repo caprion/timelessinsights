@@ -142,16 +142,16 @@ export default function Article() {
   
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="min-h-screen bg-gray-50 dark:bg-stone-900">
         <Header />
         <main className="max-w-3xl mx-auto px-4 py-12">
           <div className="animate-pulse">
-            <div className="h-8 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-4"></div>
-            <div className="h-4 bg-gray-100 dark:bg-gray-700 rounded w-1/4 mb-8"></div>
+            <div className="h-8 bg-gray-200 dark:bg-stone-700 rounded w-3/4 mb-4"></div>
+            <div className="h-4 bg-gray-100 dark:bg-stone-700 rounded w-1/4 mb-8"></div>
             <div className="space-y-4">
-              <div className="h-4 bg-gray-100 dark:bg-gray-700 rounded"></div>
-              <div className="h-4 bg-gray-100 dark:bg-gray-700 rounded"></div>
-              <div className="h-4 bg-gray-100 dark:bg-gray-700 rounded w-5/6"></div>
+              <div className="h-4 bg-gray-100 dark:bg-stone-700 rounded"></div>
+              <div className="h-4 bg-gray-100 dark:bg-stone-700 rounded"></div>
+              <div className="h-4 bg-gray-100 dark:bg-stone-700 rounded w-5/6"></div>
             </div>
           </div>
         </main>
@@ -161,10 +161,10 @@ export default function Article() {
   
   if (notFound || !article) {
     return (
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="min-h-screen bg-gray-50 dark:bg-stone-900">
         <Header />
         <main className="max-w-3xl mx-auto px-4 py-12 text-center">
-          <h1 className="font-serif text-2xl font-semibold text-gray-900 dark:text-gray-100 mb-4">
+          <h1 className="font-serif text-2xl font-semibold text-gray-900 dark:text-stone-100 mb-4">
             Article not found
           </h1>
           <Link to="/browse" className="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300">
@@ -176,14 +176,14 @@ export default function Article() {
   }
   
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+    <div className="min-h-screen bg-gray-50 dark:bg-stone-900">
       <Header />
       
       <main className="max-w-3xl mx-auto px-4 py-12">
         {/* Back link */}
         <Link 
           to="/browse" 
-          className="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300 mb-8"
+          className="inline-flex items-center gap-2 text-sm text-gray-500 dark:text-stone-400 hover:text-gray-700 dark:hover:text-stone-300 mb-8"
         >
           ← Back to articles
         </Link>
@@ -194,7 +194,7 @@ export default function Article() {
             {article.title}
           </h1>
           
-          <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-gray-400 mb-6">
+          <div className="flex flex-wrap items-center gap-4 text-sm text-gray-500 dark:text-stone-400 mb-6">
             {article.author && (
               <span>By {article.author}</span>
             )}

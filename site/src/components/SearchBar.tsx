@@ -60,22 +60,22 @@ export default function SearchBar({ articles, onSelect, placeholder = "Search ar
           onFocus={() => setIsOpen(true)}
           onBlur={() => setTimeout(() => setIsOpen(false), 200)}
           placeholder={placeholder}
-          className={`w-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl pl-11 pr-4 text-gray-900 dark:text-gray-100 placeholder:text-gray-400 dark:placeholder:text-gray-500
-            focus:outline-none focus:ring-2 focus:ring-purple-500/20 focus:border-purple-500 dark:focus:border-purple-600
+          className={`w-full bg-white dark:bg-stone-800 border border-gray-200 dark:border-stone-600 rounded-xl pl-11 pr-4 text-gray-900 dark:text-stone-100 placeholder:text-gray-400 dark:placeholder:text-stone-500
+            focus:outline-none focus:ring-2 focus:ring-purple-500/20 dark:focus:ring-purple-400/30 focus:border-purple-500 dark:focus:border-purple-400
             ${large ? 'py-4 text-lg' : 'py-3 text-base'}`}
         />
       </div>
       
       {isOpen && results.length > 0 && (
-        <div className="absolute z-50 w-full mt-2 bg-white dark:bg-gray-800 rounded-xl border border-gray-200 dark:border-gray-700 shadow-lg overflow-hidden">
+        <div className="absolute z-50 w-full mt-2 bg-white dark:bg-stone-800 rounded-xl border border-gray-200 dark:border-stone-600 shadow-lg dark:shadow-xl dark:shadow-black/30 overflow-hidden">
           {results.map((result) => (
             <button
               key={result.item.slug}
               onClick={() => handleSelect(result.item.slug)}
-              className="w-full px-4 py-3 text-left hover:bg-gray-50 dark:hover:bg-gray-700 border-b border-gray-100 dark:border-gray-700 last:border-0"
+              className="w-full px-4 py-3 text-left hover:bg-gray-50 dark:hover:bg-stone-700 border-b border-gray-100 dark:border-stone-700 last:border-0"
             >
-              <div className="font-medium text-gray-900 dark:text-gray-100">{result.item.title}</div>
-              <div className="text-sm text-gray-500 dark:text-gray-400 truncate">{result.item.excerpt}</div>
+              <div className="font-medium text-gray-900 dark:text-stone-100">{result.item.title}</div>
+              <div className="text-sm text-gray-500 dark:text-stone-400 truncate">{result.item.excerpt}</div>
             </button>
           ))}
         </div>
