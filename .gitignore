@@ -32,6 +32,10 @@ docs/
 Thumbs.db
 *.log
 
+# Temporary files
+temp_*.py
+temp_*.*
+
 # Lock files (use package-lock.json only)
 bun.lockb
 yarn.lock

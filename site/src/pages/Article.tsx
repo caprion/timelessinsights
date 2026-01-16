@@ -121,6 +121,7 @@ export default function Article() {
   const [article, setArticle] = useState<Article | null>(null);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
+  const [isAiTakeExpanded, setIsAiTakeExpanded] = useState(false);
   
   useEffect(() => {
     fetch('/search-index.json')
@@ -224,68 +225,86 @@ export default function Article() {
           )}
         </header>
         
-        {/* AI-enriched summary and highlights */}
+        {/* AI-enriched summary and highlights - Collapsible */}
         {(article.summary || (article.highlights && article.highlights.length > 0)) && (
-          <div className="mb-10 p-6 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-100 dark:border-purple-800">
-            {article.summary && (
-              <div className="mb-4">
-                <h2 className="text-sm font-semibold text-purple-900 dark:text-purple-300 uppercase tracking-wide mb-2">
-                  TL;DR
+          <div className="mb-10">
+            <button
+              onClick={() => setIsAiTakeExpanded(!isAiTakeExpanded)}
+              className="w-full p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-200 dark:border-purple-800 hover:border-purple-300 dark:hover:border-purple-700 transition-colors text-left cursor-pointer flex items-start justify-between gap-4"
+            >
+              <div className="flex-1">
+                <h2 className="text-sm font-semibold text-purple-900 dark:text-purple-300 mb-1">
+                  AI's Take
                 </h2>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                  {article.summary}
+                <p className="text-gray-700 dark:text-gray-300 italic leading-relaxed">
+                  {isAiTakeExpanded 
+                    ? article.summary 
+                    : `${article.summary?.substring(0, 60)}${(article.summary?.length || 0) > 60 ? '...' : ''}`
+                  }
                 </p>
               </div>
-            )}
+              <svg
+                className={`w-5 h-5 text-purple-600 dark:text-purple-400 flex-shrink-0 mt-1 transition-transform ${isAiTakeExpanded ? 'rotate-180' : ''}`}
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
             
-            {article.highlights && article.highlights.length > 0 && (
-              <div className="mb-4">
-                <h2 className="text-sm font-semibold text-purple-900 dark:text-purple-300 uppercase tracking-wide mb-2">
-                  Key Takeaways
-                </h2>
-                <ul className="space-y-2">
-                  {article.highlights.map((highlight, index) => (
-                    <li key={index} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
-                      <span className="text-purple-500 dark:text-purple-400 mt-1">•</span>
-                      <span>{highlight}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
-            
-            {/* When to Use / When NOT to Use */}
-            {(article.scope || article.anti_pattern) && (
-              <div className="grid md:grid-cols-2 gap-4 pt-4 border-t border-purple-200 dark:border-purple-800">
-                {article.scope && (
+            {isAiTakeExpanded && (
+              <div className="mt-2 p-6 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-200 dark:border-purple-800 space-y-4">
+                {article.highlights && article.highlights.length > 0 && (
                   <div>
-                    <h3 className="text-sm font-semibold text-green-700 dark:text-green-400 mb-1">✓ When to Use</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">{article.scope}</p>
+                    <h3 className="text-sm font-semibold text-purple-900 dark:text-purple-300 uppercase tracking-wide mb-2">
+                      Key Takeaways
+                    </h3>
+                    <ul className="space-y-2">
+                      {article.highlights.map((highlight, index) => (
+                        <li key={index} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
+                          <span className="text-purple-500 dark:text-purple-400 mt-1">•</span>
+                          <span>{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
                   </div>
                 )}
-                {article.anti_pattern && (
-                  <div>
-                    <h3 className="text-sm font-semibold text-red-700 dark:text-red-400 mb-1">✗ Common Mistake</h3>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">{article.anti_pattern}</p>
+                
+                {/* When to Use / When NOT to Use */}
+                {(article.scope || article.anti_pattern) && (
+                  <div className="grid md:grid-cols-2 gap-4 pt-4 border-t border-purple-200 dark:border-purple-800">
+                    {article.scope && (
+                      <div>
+                        <h3 className="text-sm font-semibold text-green-700 dark:text-green-400 mb-1">✓ When to Use</h3>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">{article.scope}</p>
+                      </div>
+                    )}
+                    {article.anti_pattern && (
+                      <div>
+                        <h3 className="text-sm font-semibold text-red-700 dark:text-red-400 mb-1">✗ Common Mistake</h3>
+                        <p className="text-sm text-gray-600 dark:text-gray-400">{article.anti_pattern}</p>
+                      </div>
+                    )}
                   </div>
                 )}
-              </div>
-            )}
-            
-            {/* Related Concepts */}
-            {article.related_concepts && article.related_concepts.length > 0 && (
-              <div className="pt-4 border-t border-purple-200 dark:border-purple-800 mt-4">
-                <h3 className="text-sm font-semibold text-purple-900 dark:text-purple-300 mb-2">Related Concepts</h3>
-                <div className="flex flex-wrap gap-2">
-                  {article.related_concepts.map((concept) => (
-                    <span 
-                      key={concept}
-                      className="text-xs px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 rounded-full"
-                    >
-                      {concept}
-                    </span>
-                  ))}
-                </div>
+                
+                {/* Related Concepts */}
+                {article.related_concepts && article.related_concepts.length > 0 && (
+                  <div className="pt-4 border-t border-purple-200 dark:border-purple-800">
+                    <h3 className="text-sm font-semibold text-purple-900 dark:text-purple-300 mb-2">Related Concepts</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {article.related_concepts.map((concept) => (
+                        <span 
+                          key={concept}
+                          className="text-xs px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 rounded-full"
+                        >
+                          {concept}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
               </div>
             )}
           </div>
