@@ -1,6 +1,7 @@
 import { useState, useEffect, useMemo } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 import SearchBar from '../components/SearchBar';
 import ArticleCard from '../components/ArticleCard';
 import Tag from '../components/Tag';
@@ -71,15 +72,15 @@ export default function Browse() {
   }, [index]);
   
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
       <Header />
       
       <main className="max-w-5xl mx-auto px-4 py-12">
         <div className="flex items-center justify-between mb-8">
-          <h1 className="font-serif text-3xl font-semibold text-gray-900">
+          <h1 className="font-serif text-3xl font-semibold text-gray-900 dark:text-gray-100">
             Browse Articles
           </h1>
-          <span className="text-sm text-gray-500">
+          <span className="text-sm text-gray-500 dark:text-gray-400">
             {filteredArticles.length} articles
           </span>
         </div>
@@ -124,10 +125,10 @@ export default function Browse() {
         {loading ? (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {[1, 2, 3, 4].map(i => (
-              <div key={i} className="p-6 bg-white rounded-xl border border-gray-100 animate-pulse">
-                <div className="h-6 bg-gray-200 rounded w-3/4 mb-3"></div>
-                <div className="h-4 bg-gray-100 rounded w-full mb-2"></div>
-                <div className="h-4 bg-gray-100 rounded w-5/6"></div>
+              <div key={i} className="p-6 bg-white dark:bg-gray-800 rounded-xl border border-gray-100 dark:border-gray-700 animate-pulse">
+                <div className="h-6 bg-gray-200 dark:bg-gray-700 rounded w-3/4 mb-3"></div>
+                <div className="h-4 bg-gray-100 dark:bg-gray-700 rounded w-full mb-2"></div>
+                <div className="h-4 bg-gray-100 dark:bg-gray-700 rounded w-5/6"></div>
               </div>
             ))}
           </div>
@@ -138,11 +139,12 @@ export default function Browse() {
             ))}
           </div>
         ) : (
-          <div className="text-center py-12 text-gray-500">
+          <div className="text-center py-12 text-gray-500 dark:text-gray-400">
             <p>No articles found{selectedTag ? ` for tag "${selectedTag}"` : ''}.</p>
           </div>
         )}
       </main>
+      <Footer />
     </div>
   );
 }

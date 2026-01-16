@@ -56,9 +56,25 @@ timelessinsights/
 | `npm run scrape` | Scrape all pending URLs |
 | `npm run scrape:one -- <url>` | Scrape a single URL |
 | `npm run tag` | Re-apply auto-tagging rules |
+| `npm run enrich` | AI-enrich unenriched articles |
 | `npm run build:index` | Generate search index |
 | `npm run dev` | Start dev server |
 | `npm run build` | Build for production |
+
+### Enrichment Flags
+
+| Flag | Command | Description |
+|------|---------|-------------|
+| Default | `npm run enrich` | Enrich only articles missing `enriched_at` |
+| `--force` | `npm run enrich -- --force` | Re-enrich ALL articles |
+| `--force-truncated` | `npm run enrich -- --force-truncated` | Re-enrich articles with `content_coverage < 100%` |
+| `--files` | `npm run enrich -- --files article-slug.md` | Enrich specific file(s) only |
+
+**Combine flags:**
+```bash
+# Re-enrich specific truncated articles
+npm run enrich -- --force --files article-one.md article-two.md
+```
 
 ## Adding Content
 

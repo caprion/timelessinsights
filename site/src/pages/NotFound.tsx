@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 flex flex-col">
       <Header />
-      <main className="max-w-3xl mx-auto px-4 py-24 text-center">
+      <main className="max-w-3xl mx-auto px-4 py-24 text-center flex-1">
         <h1 className="font-serif text-4xl font-semibold text-gray-900 mb-4">
           Page not found
         </h1>
@@ -19,6 +20,7 @@ export default function NotFound() {
           Go home
         </Link>
       </main>
+      <Footer />
     </div>
   );
 }

@@ -1,21 +1,34 @@
 import { Link } from 'react-router-dom';
+import { Moon, Sun } from 'lucide-react';
+import { useTheme } from '../contexts/ThemeContext';
+import SisterSite from './SisterSite';
 
 export default function Header() {
+  const { theme, toggleTheme } = useTheme();
+  
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur border-b border-gray-100">
+    <header className="sticky top-0 z-50 bg-white/95 dark:bg-gray-900/95 backdrop-blur border-b border-gray-100 dark:border-gray-800">
       <div className="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-2">
-          <span className="text-2xl font-serif italic text-purple-700">ti</span>
-          <span className="text-lg font-medium text-gray-900">TimelessInsights</span>
+          <span className="text-2xl font-serif italic text-purple-700 dark:text-purple-400">mt</span>
+          <span className="text-lg font-medium text-gray-900 dark:text-gray-100">mythoughts</span>
         </Link>
         
         <nav className="flex items-center gap-6">
+          <SisterSite label="What I write" url="https://againstenthropy.pages.dev/" />
           <Link 
             to="/browse" 
-            className="text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors"
+            className="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 transition-colors"
           >
             Browse
           </Link>
+          <button
+            onClick={toggleTheme}
+            className="p-2 rounded-lg text-gray-600 hover:text-gray-900 dark:text-gray-300 dark:hover:text-gray-100 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === 'light' ? <Moon className="w-5 h-5" /> : <Sun className="w-5 h-5" />}
+          </button>
         </nav>
       </div>
     </header>

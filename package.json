@@ -20,6 +20,7 @@
     "cheerio": "^1.0.0-rc.12",
     "fuse.js": "^7.0.0",
     "gray-matter": "^4.0.3",
+    "lucide-react": "^0.562.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^9.0.1",
