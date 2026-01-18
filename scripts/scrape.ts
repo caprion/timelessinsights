@@ -86,8 +86,13 @@ function loadAutoTags(): AutoTagsData {
   return YAML.parse(content);
 }
 
-function getExtractorForUrl(url: string, extractors: ExtractorsData): ExtractorConfig {
+function getExtractorForUrl(url: string, extractors: ExtractorsData, html?: string): ExtractorConfig {
   const hostname = new URL(url).hostname.replace('www.', '');
+  
+  // Check if it's a Substack site (by URL or HTML content)
+  if (hostname.endsWith('.substack.com') || (html && html.includes('substack.com'))) {
+    return extractors.extractors['substack.com'] || extractors.extractors['default'];
+  }
   
   for (const [domain, config] of Object.entries(extractors.extractors)) {
     if (hostname.includes(domain)) {
@@ -160,7 +165,7 @@ async function scrapeUrl(url: string, extractors: ExtractorsData, autoTags: Auto
     const html = await response.text();
     const $ = cheerio.load(html);
     
-    const extractor = getExtractorForUrl(url, extractors);
+    const extractor = getExtractorForUrl(url, extractors, html);
     
     // Extract title
     let title = '';
