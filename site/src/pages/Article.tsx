@@ -5,6 +5,8 @@ import remarkGfm from 'remark-gfm';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Tag from '../components/Tag';
+import ConceptBadge from '../components/ConceptBadge';
+import RelatedArticles from '../components/RelatedArticles';
 
 // Callout type configuration
 const CALLOUT_TYPES: Record<string, { icon: string; label: string; className: string }> = {
@@ -122,14 +124,22 @@ export default function Article() {
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
   const [isAiTakeExpanded, setIsAiTakeExpanded] = useState(false);
+  const [relatedArticles, setRelatedArticles] = useState<any[]>([]);
   
   useEffect(() => {
-    fetch('/search-index.json')
-      .then(res => res.json())
-      .then((data: SearchIndex) => {
-        const found = data.articles.find(a => a.slug === slug);
+    Promise.all([
+      fetch('/search-index.json').then(res => res.json()),
+      fetch('/graph-index.json').then(res => res.json())
+    ])
+      .then(([searchData, graphData]: [SearchIndex, any]) => {
+        const found = searchData.articles.find(a => a.slug === slug);
         if (found) {
           setArticle(found);
+          
+          // Load related articles from graph data
+          if (graphData.articles[slug!]) {
+            setRelatedArticles(graphData.articles[slug!].related || []);
+          }
         } else {
           setNotFound(true);
         }
@@ -295,12 +305,7 @@ export default function Article() {
                     <h3 className="text-sm font-semibold text-purple-900 dark:text-purple-300 mb-2">Related Concepts</h3>
                     <div className="flex flex-wrap gap-2">
                       {article.related_concepts.map((concept) => (
-                        <span 
-                          key={concept}
-                          className="text-xs px-2 py-1 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 rounded-full"
-                        >
-                          {concept}
-                        </span>
+                        <ConceptBadge key={concept} concept={concept} className="text-xs" />
                       ))}
                     </div>
                   </div>
@@ -321,6 +326,9 @@ export default function Article() {
             {article.content}
           </ReactMarkdown>
         </article>
+        
+        {/* Related Articles */}
+        <RelatedArticles related={relatedArticles} />
         
         {/* Back to browse */}
         <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">

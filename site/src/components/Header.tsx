@@ -22,6 +22,18 @@ export default function Header() {
           >
             Browse
           </Link>
+          <Link 
+            to="/concepts" 
+            className="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-stone-400 dark:hover:text-stone-200 transition-colors"
+          >
+            Concepts
+          </Link>
+          <Link 
+            to="/graph" 
+            className="text-sm font-medium text-gray-600 hover:text-gray-900 dark:text-stone-400 dark:hover:text-stone-200 transition-colors"
+          >
+            Graph
+          </Link>
           <button
             onClick={toggleTheme}
             className="p-2 rounded-lg text-gray-600 hover:text-gray-900 dark:text-stone-400 dark:hover:text-stone-200 hover:bg-gray-100 dark:hover:bg-stone-800 transition-colors"
