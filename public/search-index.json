@@ -1,6 +1,39 @@
 {
   "articles": [
     {
+      "slug": "a-technique-for-producing-ideas",
+      "title": "A Technique for Producing Ideas",
+      "excerpt": "In the foreword to James Webb Young’s book, A Technique for Producing Ideas, Keith Reinhard asks, “How can a book first published in the 1940s be important to today’s creative people on the cutting...",
+      "source_url": "https://fs.blog/a-technique-for-producing-ideas/",
+      "source": "fs",
+      "author": "Shane Parrish",
+      "date": "2026-01-26",
+      "tags": [
+        "source:fs-blog",
+        "buffett",
+        "learning"
+      ],
+      "type": "article",
+      "reading_time": "7 min",
+      "content": "\nIn the foreword to James Webb Young’s book, [A Technique for Producing Ideas](http://www.amazon.com/gp/product/0071410945/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0071410945&linkCode=as2&tag=farnamstreet-20), Keith Reinhard asks, “How can a book first published in the 1940s be important to today’s creative people on the cutting edge?”\n\nThe answer lies in the question that inspired Webb’s book, “How do you get ideas?”\n\nWebb argues that the production of ideas is a process, just like the production of cars.\n\n> … the production of ideas, too, runs on an assembly line; that in this production the mind follows an operative technique which can be learned and controlled; and that its effective use is just as much a matter of practice in the technique as is the effective use of any tool.\n\nThe formula is simple but not easy.\n\n> First, the formula is so simple to state that few who hear it really believe in it.\n> \n> Second, while simple to state, it actually requires the hardest kind of intellectual work to follow, so that not all who accept it use it.\n\nThat’s the same reason Warren Buffett has no problem sharing the secrets of investing in his [shareholder letters](http://www.amazon.com/gp/product/1595910778/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1595910778&linkCode=as2&tag=farnamstreet-20) (I recommend the real thing, but if you’re pressed for time, you could do worse than the [Cliff Notes version](http://www.amazon.com/gp/product/1611634091/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1611634091&linkCode=as2&tag=farnamstreet-20).)\n\nTraining the mind requires that you learn principles and methods.\n\n> In learning any art the important things to learn are, first, Principles, and second, Method. This is true of the art of producing ideas.\n> \n> Particular bits of knowledge are nothing, because they are made up of what Dr. Robert Hutchins once called rapidly aging facts. Principles and method are everything.\n> \n> \\[…\\]\n> \n> So with the art of producing ideas. What is most valuable to know is not where to look for a particular idea, but how to train the mind in the method by which all ideas are produced and how to grasp the principles which are at the source of all ideas.\n\n[Echoing Einstein](https://www.farnamstreetblog.com/2014/04/einstein-productive-thought-combinatory-creativity/), Webb believed that the key to creativity could be found in new combinations of old things.\n\n> With regard to the general principles which underlie the production of ideas, it seems to me that there are two which are important.\n> \n> The first of these has already been touched upon in the quotation from Pareto: namely, that **an idea is nothing more or less than a new combination of old elements.**\n> \n> This is, perhaps the most important fact in connection with the production of ideas.\n> \n> \\[…\\]\n> \n> The second important principle involved is that the capacity to bring old elements into new combinations depends largely on the ability to see relationships.\n> \n> Here, I suspect, is where minds differ to the greatest degree when it comes to the production of ideas. To some minds each fact is a separate bit of knowledge. To others it is a link in a chain of knowledge. It has relationships and similarities. It is not so much a fact as it is an illustration of a general law applying to a whole series of facts.\n> \n> \\[…\\]\n> \n> Consequently **the habit of mind which leads to a search for relationships between facts becomes of the highest importance in the production of ideas.**\n\nYoung expands on the notion that combinations, and thus relationships and connections between ideas, are the key.\n\n> An idea is nothing more nor less than a new combination of old elements \\[and\\] the capacity to bring old elements into new combinations depends largely on the ability to see relationships. The habit of mind which leads to a search for relationships between facts becomes of the highest importance in the production of ideas.\n\nThe process he advises involves 5 steps.\n\nWhile we will all be familiar with each individual step, it is more important to recognize their relationship and “grasp the fact that the mind follows these five steps in definite order.”\n\n**1\\. Gather Raw Material**\n\n> Gathering raw material in a real way is not as simple as it sounds. It is such a terrible chore that we are constantly trying to dodge it. The time that ought to be spent in material gathering is spent in wool gathering. Instead of working systematically at the job of gathering raw material we sit around hoping for inspiration to strike us. When we do that we are trying to get the mind to take the fourth step in the idea-producing process while we dodge the preceding steps.\n> \n> The materials which must be gathered are of two kinds: they are specific and they are general.\n\nPart of this is what you set out to do when you create an idea and part of it is a life-long curiosity.\n\n“Before passin",
+      "summary": "An idea is a new combination of old elements, and generating them is a systematic, trainable, 5-step process involving intentional data gathering, mental digestion, subconscious processing, an 'aha' moment, and critical refinement.",
+      "highlights": [
+        "Treat idea generation as a systematic, trainable process, not just a spontaneous event, by following specific steps.",
+        "Actively gather both specific knowledge related to your problem and general knowledge through continuous curiosity.",
+        "After consciously processing gathered information, allow your subconscious mind to work on the problem before refining the resulting idea."
+      ],
+      "topic": "mental-models",
+      "secondary_topic": "productivity",
+      "related_concepts": [
+        "combinatory-creativity",
+        "systematic-process",
+        "information-synthesis",
+        "subconscious-processing"
+      ],
+      "scope": "This systematic process applies to generating novel ideas and solutions across any field or problem requiring creative thought.",
+      "anti_pattern": "People commonly misapply this by hoping for spontaneous inspiration instead of diligently gathering raw material and systematically working through the process, or by failing to patiently refine their ideas."
+    },
+    {
       "slug": "manifesto-for-doing-good-science-in-ai",
       "title": "Manifesto for doing good science in AI",
       "excerpt": "Lossfunk is a new AI lab that aims to be a cosy home for independent researchers. We aim to be curiosity-driven alternative to academia and industry. As a founder of the lab, I wanted to share my...",
@@ -132,38 +165,6 @@
       ],
       "scope": "Leadership applies in all areas of life, from personal to professional settings",
       "anti_pattern": "Confusing charisma or popularity with true leadership ability"
-    },
-    {
-      "slug": "a-technique-for-producing-ideas",
-      "title": "A Technique for Producing Ideas",
-      "excerpt": "In the foreword to James Webb Young’s book, A Technique for Producing Ideas, Keith Reinhard asks, “How can a book first published in the 1940s be important to today’s creative people on the cutting...",
-      "source_url": "https://fs.blog/2013/09/a-technique-for-producing-ideas/",
-      "source": "fs",
-      "author": "Shane Parrish",
-      "date": "2026-01-15",
-      "tags": [
-        "source:fs-blog",
-        "buffett",
-        "learning"
-      ],
-      "type": "article",
-      "reading_time": "7 min",
-      "content": "\nIn the foreword to James Webb Young’s book, [A Technique for Producing Ideas](http://www.amazon.com/gp/product/0071410945/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=0071410945&linkCode=as2&tag=farnamstreet-20), Keith Reinhard asks, “How can a book first published in the 1940s be important to today’s creative people on the cutting edge?”\n\nThe answer lies in the question that inspired Webb’s book, “How do you get ideas?”\n\nWebb argues that the production of ideas is a process, just like the production of cars.\n\n> … the production of ideas, too, runs on an assembly line; that in this production the mind follows an operative technique which can be learned and controlled; and that its effective use is just as much a matter of practice in the technique as is the effective use of any tool.\n\nThe formula is simple but not easy.\n\n> First, the formula is so simple to state that few who hear it really believe in it.\n> \n> Second, while simple to state, it actually requires the hardest kind of intellectual work to follow, so that not all who accept it use it.\n\nThat’s the same reason Warren Buffett has no problem sharing the secrets of investing in his [shareholder letters](http://www.amazon.com/gp/product/1595910778/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1595910778&linkCode=as2&tag=farnamstreet-20) (I recommend the real thing, but if you’re pressed for time, you could do worse than the [Cliff Notes version](http://www.amazon.com/gp/product/1611634091/ref=as_li_qf_sp_asin_il_tl?ie=UTF8&camp=1789&creative=9325&creativeASIN=1611634091&linkCode=as2&tag=farnamstreet-20).)\n\nTraining the mind requires that you learn principles and methods.\n\n> In learning any art the important things to learn are, first, Principles, and second, Method. This is true of the art of producing ideas.\n> \n> Particular bits of knowledge are nothing, because they are made up of what Dr. Robert Hutchins once called rapidly aging facts. Principles and method are everything.\n> \n> \\[…\\]\n> \n> So with the art of producing ideas. What is most valuable to know is not where to look for a particular idea, but how to train the mind in the method by which all ideas are produced and how to grasp the principles which are at the source of all ideas.\n\n[Echoing Einstein](https://www.farnamstreetblog.com/2014/04/einstein-productive-thought-combinatory-creativity/), Webb believed that the key to creativity could be found in new combinations of old things.\n\n> With regard to the general principles which underlie the production of ideas, it seems to me that there are two which are important.\n> \n> The first of these has already been touched upon in the quotation from Pareto: namely, that **an idea is nothing more or less than a new combination of old elements.**\n> \n> This is, perhaps the most important fact in connection with the production of ideas.\n> \n> \\[…\\]\n> \n> The second important principle involved is that the capacity to bring old elements into new combinations depends largely on the ability to see relationships.\n> \n> Here, I suspect, is where minds differ to the greatest degree when it comes to the production of ideas. To some minds each fact is a separate bit of knowledge. To others it is a link in a chain of knowledge. It has relationships and similarities. It is not so much a fact as it is an illustration of a general law applying to a whole series of facts.\n> \n> \\[…\\]\n> \n> Consequently **the habit of mind which leads to a search for relationships between facts becomes of the highest importance in the production of ideas.**\n\nYoung expands on the notion that combinations, and thus relationships and connections between ideas, are the key.\n\n> An idea is nothing more nor less than a new combination of old elements \\[and\\] the capacity to bring old elements into new combinations depends largely on the ability to see relationships. The habit of mind which leads to a search for relationships between facts becomes of the highest importance in the production of ideas.\n\nThe process he advises involves 5 steps.\n\nWhile we will all be familiar with each individual step, it is more important to recognize their relationship and “grasp the fact that the mind follows these five steps in definite order.”\n\n**1\\. Gather Raw Material**\n\n> Gathering raw material in a real way is not as simple as it sounds. It is such a terrible chore that we are constantly trying to dodge it. The time that ought to be spent in material gathering is spent in wool gathering. Instead of working systematically at the job of gathering raw material we sit around hoping for inspiration to strike us. When we do that we are trying to get the mind to take the fourth step in the idea-producing process while we dodge the preceding steps.\n> \n> The materials which must be gathered are of two kinds: they are specific and they are general.\n\nPart of this is what you set out to do when you create an idea and part of it is a life-long curiosity.\n\n“Before passin",
-      "summary": "The production of ideas follows a process that can be learned and controlled, involving the combination of old elements into new relationships",
-      "highlights": [
-        "Training the mind requires learning principles and methods, not just gathering knowledge",
-        "The key to creativity lies in new combinations of old things, facilitated by the ability to see relationships",
-        "A systematic 5-step process can be used to produce ideas, involving gathering raw material, mental digestion, unconscious processing, and final adaptation"
-      ],
-      "topic": "mental-models",
-      "secondary_topic": "learning",
-      "related_concepts": [
-        "combinatory-creativity",
-        "idea-generation",
-        "critical-thinking"
-      ],
-      "scope": "This insight applies to anyone looking to improve their creative thinking and idea generation skills",
-      "anti_pattern": "People commonly misapply this by trying to force inspiration instead of following a systematic process"
     },
     {
       "slug": "active-listening-the-master-key-to-effective-communication",
@@ -2121,5 +2122,5 @@
       "article": 62
     }
   },
-  "generated_at": "2026-01-18T14:10:52.198Z"
+  "generated_at": "2026-01-26T13:02:37.513Z"
 }
