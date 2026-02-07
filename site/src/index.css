@@ -3,17 +3,18 @@
 @tailwind utilities;
 
 :root {
-  --color-primary: #6d28d9;
-  --color-primary-light: #8b5cf6;
+  --color-primary: #c2452d;
+  --color-primary-light: #e06b55;
 }
 
 body {
   @apply bg-gray-50 dark:bg-stone-900 text-gray-900 dark:text-stone-200 antialiased;
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'IBM Plex Sans', system-ui, sans-serif;
+  background-color: #faf6f0;
 }
 
 .font-serif {
-  font-family: 'Crimson Pro', Georgia, serif;
+  font-family: 'Libre Baskerville', Georgia, serif;
 }
 
 /* Prose styling for article content */
@@ -38,7 +39,7 @@ body {
 }
 
 .prose a {
-  @apply text-purple-700 dark:text-purple-400 hover:text-purple-900 dark:hover:text-purple-300 underline;
+  @apply text-accent-700 dark:text-accent-300 hover:text-accent-900 dark:hover:text-accent-200 underline;
 }
 
 .prose ul, .prose ol {
@@ -58,7 +59,7 @@ body {
 }
 
 .prose blockquote {
-  @apply border-l-4 border-purple-300 dark:border-purple-600 pl-4 italic text-gray-700 dark:text-stone-300 my-4;
+  @apply border-l-4 border-accent-300 dark:border-accent-600 pl-4 italic text-gray-700 dark:text-stone-300 my-4;
 }
 
 .prose code {
@@ -124,13 +125,13 @@ body {
   @apply bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300;
 }
 
-/* Question - purple for things to explore */
+/* Question - accent for things to explore */
 .callout-question {
-  @apply border-purple-400 dark:border-purple-600 bg-purple-50 dark:bg-purple-900/20;
+  @apply border-accent-400 dark:border-accent-600 bg-red-50 dark:bg-red-900/20;
 }
 
 .callout-question .callout-title {
-  @apply bg-purple-100 dark:bg-purple-900/30 text-purple-800 dark:text-purple-300;
+  @apply bg-red-100 dark:bg-red-900/30 text-accent-800 dark:text-accent-300;
 }
 
 /* Insight - green for personal realizations */

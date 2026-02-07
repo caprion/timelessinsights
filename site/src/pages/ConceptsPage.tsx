@@ -72,7 +72,7 @@ export default function ConceptsPage() {
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-4">
-            <Network className="w-8 h-8 text-purple-600 dark:text-purple-400" />
+            <Network className="w-8 h-8 text-accent-600 dark:text-accent-400" />
             <h1 className="font-serif text-4xl font-bold text-gray-900 dark:text-stone-100">
               Concept Map
             </h1>
@@ -91,7 +91,7 @@ export default function ConceptsPage() {
               placeholder="Search concepts..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-200 dark:border-stone-700 rounded-lg bg-white dark:bg-stone-800 text-gray-900 dark:text-stone-100 focus:outline-none focus:ring-2 focus:ring-purple-500"
+              className="w-full pl-10 pr-4 py-2 border border-gray-200 dark:border-stone-700 rounded-lg bg-white dark:bg-stone-800 text-gray-900 dark:text-stone-100 focus:outline-none focus:ring-2 focus:ring-accent-500"
             />
           </div>
           <div className="flex gap-2">
@@ -99,7 +99,7 @@ export default function ConceptsPage() {
               onClick={() => setSortBy('frequency')}
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 sortBy === 'frequency'
-                  ? 'bg-purple-600 text-white'
+                  ? 'bg-forest-500 text-white'
                   : 'bg-gray-100 dark:bg-stone-800 text-gray-700 dark:text-stone-300 hover:bg-gray-200 dark:hover:bg-stone-700'
               }`}
             >
@@ -110,7 +110,7 @@ export default function ConceptsPage() {
               onClick={() => setSortBy('alphabetical')}
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 sortBy === 'alphabetical'
-                  ? 'bg-purple-600 text-white'
+                  ? 'bg-forest-500 text-white'
                   : 'bg-gray-100 dark:bg-stone-800 text-gray-700 dark:text-stone-300 hover:bg-gray-200 dark:hover:bg-stone-700'
               }`}
             >
@@ -130,13 +130,13 @@ export default function ConceptsPage() {
                 <Link
                   key={name}
                   to={`/concept/${name}`}
-                  className="block p-4 bg-gray-50 dark:bg-stone-800 rounded-lg border border-gray-100 dark:border-stone-700 hover:border-purple-200 dark:hover:border-purple-600 hover:shadow-md transition-all group"
+                  className="block p-4 bg-gray-50 dark:bg-stone-800 rounded-lg border border-gray-100 dark:border-stone-700 hover:border-accent-200 dark:hover:border-accent-600 hover:shadow-md transition-all group"
                 >
                   <div className="flex items-start justify-between mb-2">
-                    <h3 className="font-medium text-gray-900 dark:text-stone-100 group-hover:text-purple-700 dark:group-hover:text-purple-400 transition-colors">
+                    <h3 className="font-medium text-gray-900 dark:text-stone-100 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">
                       {name}
                     </h3>
-                    <span className="px-2 py-0.5 text-xs font-semibold bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full">
+                    <span className="px-2 py-0.5 text-xs font-semibold bg-accent-100 dark:bg-stone-700 text-accent-700 dark:text-accent-300 rounded-full">
                       {data.count}
                     </span>
                   </div>

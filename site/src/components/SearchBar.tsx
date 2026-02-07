@@ -61,7 +61,7 @@ export default function SearchBar({ articles, onSelect, placeholder = "Search ar
           onBlur={() => setTimeout(() => setIsOpen(false), 200)}
           placeholder={placeholder}
           className={`w-full bg-white dark:bg-stone-800 border border-gray-200 dark:border-stone-600 rounded-xl pl-11 pr-4 text-gray-900 dark:text-stone-100 placeholder:text-gray-400 dark:placeholder:text-stone-500
-            focus:outline-none focus:ring-2 focus:ring-purple-500/20 dark:focus:ring-purple-400/30 focus:border-purple-500 dark:focus:border-purple-400
+            focus:outline-none focus:ring-2 focus:ring-accent-500/20 dark:focus:ring-accent-400/30 focus:border-accent-500 dark:focus:border-accent-400
             ${large ? 'py-4 text-lg' : 'py-3 text-base'}`}
         />
       </div>

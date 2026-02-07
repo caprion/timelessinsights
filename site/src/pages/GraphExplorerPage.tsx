@@ -44,9 +44,9 @@ function CustomNode({ data }: any) {
       text: 'text-blue-900 dark:text-blue-100',
     },
     concept: {
-      bg: 'bg-purple-100 dark:bg-purple-900/30',
-      border: 'border-purple-300 dark:border-purple-700',
-      text: 'text-purple-900 dark:text-purple-100',
+      bg: 'bg-accent-100 dark:bg-accent-900/30',
+      border: 'border-accent-300 dark:border-accent-700',
+      text: 'text-accent-900 dark:text-accent-100',
     },
     topic: {
       bg: 'bg-green-100 dark:bg-green-900/30',
@@ -178,7 +178,7 @@ export default function GraphExplorerPage() {
       type: 'smoothstep',
       animated: edge.type === 'related-article',
       style: { 
-        stroke: edge.type === 'related-article' ? '#a855f7' : '#94a3b8',
+        stroke: edge.type === 'related-article' ? '#c2452d' : '#94a3b8',
         strokeWidth: edge.weight ? Math.min(edge.weight, 3) : 1,
       },
     }));
@@ -218,7 +218,7 @@ export default function GraphExplorerPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
-              <Network className="w-6 h-6 text-purple-600 dark:text-purple-400" />
+              <Network className="w-6 h-6 text-accent-600 dark:text-accent-400" />
               <h1 className="font-serif text-2xl font-bold text-gray-900 dark:text-stone-100">
                 Knowledge Graph
               </h1>
@@ -239,7 +239,7 @@ export default function GraphExplorerPage() {
                 onClick={() => setViewMode('concepts')}
                 className={`px-3 py-1.5 text-sm rounded-lg font-medium transition-colors ${
                   viewMode === 'concepts'
-                    ? 'bg-purple-600 text-white'
+                    ? 'bg-forest-500 text-white'
                     : 'bg-gray-100 dark:bg-stone-800 text-gray-700 dark:text-stone-300 hover:bg-gray-200 dark:hover:bg-stone-700'
                 }`}
               >
@@ -249,7 +249,7 @@ export default function GraphExplorerPage() {
                 onClick={() => setViewMode('articles')}
                 className={`px-3 py-1.5 text-sm rounded-lg font-medium transition-colors ${
                   viewMode === 'articles'
-                    ? 'bg-purple-600 text-white'
+                    ? 'bg-forest-500 text-white'
                     : 'bg-gray-100 dark:bg-stone-800 text-gray-700 dark:text-stone-300 hover:bg-gray-200 dark:hover:bg-stone-700'
                 }`}
               >
@@ -259,7 +259,7 @@ export default function GraphExplorerPage() {
                 onClick={() => setViewMode('all')}
                 className={`px-3 py-1.5 text-sm rounded-lg font-medium transition-colors ${
                   viewMode === 'all'
-                    ? 'bg-purple-600 text-white'
+                    ? 'bg-forest-500 text-white'
                     : 'bg-gray-100 dark:bg-stone-800 text-gray-700 dark:text-stone-300 hover:bg-gray-200 dark:hover:bg-stone-700'
                 }`}
               >
@@ -274,7 +274,7 @@ export default function GraphExplorerPage() {
                 <select
                   value={selectedTopic}
                   onChange={(e) => setSelectedTopic(e.target.value)}
-                  className="px-3 py-1.5 text-sm rounded-lg bg-white dark:bg-stone-800 border border-gray-200 dark:border-stone-700 text-gray-900 dark:text-stone-100 focus:outline-none focus:ring-2 focus:ring-purple-500"
+                  className="px-3 py-1.5 text-sm rounded-lg bg-white dark:bg-stone-800 border border-gray-200 dark:border-stone-700 text-gray-900 dark:text-stone-100 focus:outline-none focus:ring-2 focus:ring-accent-500"
                 >
                   {topics.map(topic => (
                     <option key={topic} value={topic}>
@@ -306,7 +306,7 @@ export default function GraphExplorerPage() {
             nodeColor={(node) => {
               const type = (node.data as any).nodeType;
               if (type === 'article') return '#3b82f6';
-              if (type === 'concept') return '#a855f7';
+              if (type === 'concept') return '#c2452d';
               return '#22c55e';
             }}
           />
@@ -322,7 +322,7 @@ export default function GraphExplorerPage() {
             <span className="text-gray-600 dark:text-stone-400">Article</span>
           </div>
           <div className="flex items-center gap-2">
-            <div className="w-3 h-3 rounded-full bg-purple-500"></div>
+            <div className="w-3 h-3 rounded-full bg-accent-500"></div>
             <span className="text-gray-600 dark:text-stone-400">Concept</span>
           </div>
           <div className="flex items-center gap-2">

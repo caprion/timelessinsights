@@ -178,7 +178,7 @@ export default function Article() {
           <h1 className="font-serif text-2xl font-semibold text-gray-900 dark:text-stone-100 mb-4">
             Article not found
           </h1>
-          <Link to="/browse" className="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300">
+          <Link to="/browse" className="text-accent-600 dark:text-accent-400 hover:text-accent-800 dark:hover:text-accent-300">
             ← Back to browse
           </Link>
         </main>
@@ -217,7 +217,7 @@ export default function Article() {
                 href={article.source_url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300"
+                className="text-accent-600 dark:text-accent-400 hover:text-accent-800 dark:hover:text-accent-300"
               >
                 View original ↗
               </a>
@@ -240,10 +240,10 @@ export default function Article() {
           <div className="mb-10">
             <button
               onClick={() => setIsAiTakeExpanded(!isAiTakeExpanded)}
-              className="w-full p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-200 dark:border-purple-800 hover:border-purple-300 dark:hover:border-purple-700 transition-colors text-left cursor-pointer flex items-start justify-between gap-4"
+              className="w-full p-4 bg-amber-50 dark:bg-stone-800 rounded-lg border border-earth-border dark:border-stone-700 hover:border-accent-300 dark:hover:border-accent-700 transition-colors text-left cursor-pointer flex items-start justify-between gap-4"
             >
               <div className="flex-1">
-                <h2 className="text-sm font-semibold text-purple-900 dark:text-purple-300 mb-1">
+                <h2 className="text-sm font-semibold text-earth-text dark:text-stone-300 mb-1">
                   AI's Take
                 </h2>
                 <p className="text-gray-700 dark:text-gray-300 italic leading-relaxed">
@@ -254,7 +254,7 @@ export default function Article() {
                 </p>
               </div>
               <svg
-                className={`w-5 h-5 text-purple-600 dark:text-purple-400 flex-shrink-0 mt-1 transition-transform ${isAiTakeExpanded ? 'rotate-180' : ''}`}
+                className={`w-5 h-5 text-accent-600 dark:text-accent-400 flex-shrink-0 mt-1 transition-transform ${isAiTakeExpanded ? 'rotate-180' : ''}`}
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -264,16 +264,16 @@ export default function Article() {
             </button>
             
             {isAiTakeExpanded && (
-              <div className="mt-2 p-6 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-200 dark:border-purple-800 space-y-4">
+              <div className="mt-2 p-6 bg-amber-50 dark:bg-stone-800 rounded-lg border border-earth-border dark:border-stone-700 space-y-4">
                 {article.highlights && article.highlights.length > 0 && (
                   <div>
-                    <h3 className="text-sm font-semibold text-purple-900 dark:text-purple-300 uppercase tracking-wide mb-2">
+                    <h3 className="text-sm font-semibold text-earth-text dark:text-stone-300 uppercase tracking-wide mb-2">
                       Key Takeaways
                     </h3>
                     <ul className="space-y-2">
                       {article.highlights.map((highlight, index) => (
                         <li key={index} className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
-                          <span className="text-purple-500 dark:text-purple-400 mt-1">•</span>
+                          <span className="text-accent-500 dark:text-accent-400 mt-1">•</span>
                           <span>{highlight}</span>
                         </li>
                       ))}
@@ -283,7 +283,7 @@ export default function Article() {
                 
                 {/* When to Use / When NOT to Use */}
                 {(article.scope || article.anti_pattern) && (
-                  <div className="grid md:grid-cols-2 gap-4 pt-4 border-t border-purple-200 dark:border-purple-800">
+                  <div className="grid md:grid-cols-2 gap-4 pt-4 border-t border-earth-border dark:border-stone-700">
                     {article.scope && (
                       <div>
                         <h3 className="text-sm font-semibold text-green-700 dark:text-green-400 mb-1">✓ When to Use</h3>
@@ -301,8 +301,8 @@ export default function Article() {
                 
                 {/* Related Concepts */}
                 {article.related_concepts && article.related_concepts.length > 0 && (
-                  <div className="pt-4 border-t border-purple-200 dark:border-purple-800">
-                    <h3 className="text-sm font-semibold text-purple-900 dark:text-purple-300 mb-2">Related Concepts</h3>
+                  <div className="pt-4 border-t border-earth-border dark:border-stone-700">
+                    <h3 className="text-sm font-semibold text-earth-text dark:text-stone-300 mb-2">Related Concepts</h3>
                     <div className="flex flex-wrap gap-2">
                       {article.related_concepts.map((concept) => (
                         <ConceptBadge key={concept} concept={concept} className="text-xs" />
@@ -334,7 +334,7 @@ export default function Article() {
         <div className="mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
           <Link 
             to="/browse" 
-            className="text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300"
+            className="text-accent-600 dark:text-accent-400 hover:text-accent-800 dark:hover:text-accent-300"
           >
             ← Browse more articles
           </Link>

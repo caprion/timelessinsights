@@ -20,7 +20,7 @@ export default function Footer() {
           <div className="flex items-center gap-6">
             <a
               href="mailto:st.garg19@gmail.com"
-              className="group flex items-center gap-2 text-gray-600 dark:text-stone-400 hover:text-purple-700 dark:hover:text-purple-400 transition-colors"
+              className="group flex items-center gap-2 text-gray-600 dark:text-stone-400 hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
               aria-label="Email"
             >
               <Mail className="w-5 h-5" />
@@ -31,7 +31,7 @@ export default function Footer() {
               href="https://www.linkedin.com/in/stgarg/"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 text-gray-600 dark:text-stone-400 hover:text-purple-700 dark:hover:text-purple-400 transition-colors"
+              className="group flex items-center gap-2 text-gray-600 dark:text-stone-400 hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5" />
@@ -42,7 +42,7 @@ export default function Footer() {
               href="https://x.com/gargsumit"
               target="_blank"
               rel="noopener noreferrer"
-              className="group flex items-center gap-2 text-gray-600 dark:text-stone-400 hover:text-purple-700 dark:hover:text-purple-400 transition-colors"
+              className="group flex items-center gap-2 text-gray-600 dark:text-stone-400 hover:text-accent-600 dark:hover:text-accent-400 transition-colors"
               aria-label="X (Twitter)"
             >
               <Twitter className="w-5 h-5" />

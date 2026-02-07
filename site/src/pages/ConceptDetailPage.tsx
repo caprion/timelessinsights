@@ -59,7 +59,7 @@ export default function ConceptDetailPage() {
     return (
       <div className="min-h-screen bg-white dark:bg-stone-900">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-          <Link to="/concepts" className="inline-flex items-center gap-2 text-purple-600 dark:text-purple-400 hover:underline mb-6">
+          <Link to="/concepts" className="inline-flex items-center gap-2 text-accent-600 dark:text-accent-400 hover:underline mb-6">
             <ArrowLeft className="w-4 h-4" />
             Back to Concepts
           </Link>
@@ -91,7 +91,7 @@ export default function ConceptDetailPage() {
     <div className="min-h-screen bg-white dark:bg-stone-900">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Back button */}
-        <Link to="/concepts" className="inline-flex items-center gap-2 text-purple-600 dark:text-purple-400 hover:underline mb-6">
+        <Link to="/concepts" className="inline-flex items-center gap-2 text-accent-600 dark:text-accent-400 hover:underline mb-6">
           <ArrowLeft className="w-4 h-4" />
           Back to All Concepts
         </Link>
@@ -101,7 +101,7 @@ export default function ConceptDetailPage() {
           <div className="flex items-start justify-between mb-4">
             <div>
               <div className="flex items-center gap-3 mb-2">
-                <Tag className="w-8 h-8 text-purple-600 dark:text-purple-400" />
+                <Tag className="w-8 h-8 text-accent-600 dark:text-accent-400" />
                 <h1 className="font-serif text-4xl font-bold text-gray-900 dark:text-stone-100">
                   {slug}
                 </h1>
@@ -110,7 +110,7 @@ export default function ConceptDetailPage() {
                 Appears in {concept.count} article{concept.count !== 1 ? 's' : ''}
                 {primaryTopic && (
                   <span className="ml-2">
-                    • Primary topic: <span className="text-purple-600 dark:text-purple-400 font-medium capitalize">{primaryTopic[0]}</span>
+                    • Primary topic: <span className="text-accent-600 dark:text-accent-400 font-medium capitalize">{primaryTopic[0]}</span>
                   </span>
                 )}
               </p>
@@ -122,7 +122,7 @@ export default function ConceptDetailPage() {
         {relatedConcepts.length > 0 && (
           <div className="mb-12 p-6 bg-gray-50 dark:bg-stone-800 rounded-xl border border-gray-100 dark:border-stone-700">
             <div className="flex items-center gap-2 mb-4">
-              <Network className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+              <Network className="w-5 h-5 text-accent-600 dark:text-accent-400" />
               <h2 className="font-serif text-xl font-semibold text-gray-900 dark:text-stone-100">
                 Frequently Appears With
               </h2>
@@ -132,12 +132,12 @@ export default function ConceptDetailPage() {
                 <Link
                   key={conceptName}
                   to={`/concept/${conceptName}`}
-                  className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-stone-900 rounded-lg border border-gray-200 dark:border-stone-700 hover:border-purple-200 dark:hover:border-purple-600 hover:shadow-md transition-all group"
+                  className="inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-stone-900 rounded-lg border border-gray-200 dark:border-stone-700 hover:border-accent-200 dark:hover:border-accent-600 hover:shadow-md transition-all group"
                 >
-                  <span className="text-gray-900 dark:text-stone-100 group-hover:text-purple-700 dark:group-hover:text-purple-400 transition-colors">
+                  <span className="text-gray-900 dark:text-stone-100 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">
                     {conceptName}
                   </span>
-                  <span className="px-2 py-0.5 text-xs font-semibold bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full">
+                  <span className="px-2 py-0.5 text-xs font-semibold bg-accent-100 dark:bg-stone-700 text-accent-700 dark:text-accent-300 rounded-full">
                     {count}
                   </span>
                 </Link>

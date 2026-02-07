@@ -52,7 +52,7 @@ export default function Home() {
       {/* Hero */}
       <section className="py-16 md:py-24">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <p className="text-sm uppercase tracking-widest text-purple-600 dark:text-purple-400 mb-4">
+          <p className="text-sm uppercase tracking-widest text-accent-600 dark:text-accent-400 mb-4">
             Personal Knowledge Library
           </p>
           <h1 className="font-serif text-4xl md:text-5xl font-semibold text-gray-900 dark:text-stone-100 mb-6">
@@ -102,7 +102,7 @@ export default function Home() {
             </h2>
             <button 
               onClick={() => navigate('/browse')}
-              className="text-sm font-medium text-purple-600 dark:text-purple-400 hover:text-purple-800 dark:hover:text-purple-300"
+              className="text-sm font-medium text-accent-600 dark:text-accent-400 hover:text-accent-800 dark:hover:text-accent-300"
             >
               View all →
             </button>

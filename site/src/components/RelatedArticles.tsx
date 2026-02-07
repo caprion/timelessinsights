@@ -24,7 +24,7 @@ export default function RelatedArticles({ related, maxDisplay = 5 }: RelatedArti
   return (
     <div className="mt-12 pt-8 border-t border-gray-200 dark:border-stone-700">
       <div className="flex items-center gap-2 mb-6">
-        <Network className="w-5 h-5 text-purple-600 dark:text-purple-400" />
+        <Network className="w-5 h-5 text-accent-600 dark:text-accent-400" />
         <h2 className="font-serif text-2xl font-bold text-gray-900 dark:text-stone-100">
           Related Articles
         </h2>
@@ -35,9 +35,9 @@ export default function RelatedArticles({ related, maxDisplay = 5 }: RelatedArti
           <Link
             key={article.slug}
             to={`/article/${article.slug}`}
-            className="block p-4 bg-gray-50 dark:bg-stone-800 rounded-lg border border-gray-100 dark:border-stone-700 hover:border-purple-200 dark:hover:border-purple-600 hover:shadow-md transition-all group"
+            className="block p-4 bg-gray-50 dark:bg-stone-800 rounded-lg border border-gray-100 dark:border-stone-700 hover:border-accent-200 dark:hover:border-accent-600 hover:shadow-md transition-all group"
           >
-            <h3 className="font-medium text-gray-900 dark:text-stone-100 group-hover:text-purple-700 dark:group-hover:text-purple-400 transition-colors mb-2 line-clamp-2">
+            <h3 className="font-medium text-gray-900 dark:text-stone-100 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors mb-2 line-clamp-2">
               {article.title}
             </h3>
             
@@ -50,7 +50,7 @@ export default function RelatedArticles({ related, maxDisplay = 5 }: RelatedArti
                   {article.sharedConcepts.slice(0, 3).map((concept) => (
                     <span
                       key={concept}
-                      className="px-2 py-0.5 text-xs bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full"
+                      className="px-2 py-0.5 text-xs bg-accent-100 dark:bg-stone-700 text-accent-700 dark:text-accent-300 rounded-full"
                     >
                       {concept}
                     </span>
