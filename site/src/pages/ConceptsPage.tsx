@@ -32,8 +32,8 @@ export default function ConceptsPage() {
 
   if (!graphData) {
     return (
-      <div className="min-h-screen bg-white dark:bg-stone-900 flex items-center justify-center">
-        <div className="text-gray-400 dark:text-stone-500">Loading concepts...</div>
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-gray-400">Loading concepts...</div>
       </div>
     );
   }
@@ -67,17 +67,17 @@ export default function ConceptsPage() {
   });
 
   return (
-    <div className="min-h-screen bg-white dark:bg-stone-900">
+    <div className="min-h-screen bg-white">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Header */}
         <div className="mb-8">
           <div className="flex items-center gap-3 mb-4">
-            <Network className="w-8 h-8 text-accent-600 dark:text-accent-400" />
-            <h1 className="font-serif text-4xl font-bold text-gray-900 dark:text-stone-100">
+            <Network className="w-8 h-8 text-accent-600" />
+            <h1 className="font-serif text-4xl font-bold text-gray-900">
               Concept Map
             </h1>
           </div>
-          <p className="text-gray-600 dark:text-stone-400 text-lg">
+          <p className="text-gray-600 text-lg">
             Explore {graphData.stats.totalConcepts} interconnected concepts across {graphData.stats.totalArticles} articles
           </p>
         </div>
@@ -91,7 +91,7 @@ export default function ConceptsPage() {
               placeholder="Search concepts..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-2 border border-gray-200 dark:border-stone-700 rounded-lg bg-white dark:bg-stone-800 text-gray-900 dark:text-stone-100 focus:outline-none focus:ring-2 focus:ring-accent-500"
+              className="w-full pl-10 pr-4 py-2 border border-gray-200 rounded-lg bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent-500"
             />
           </div>
           <div className="flex gap-2">
@@ -100,7 +100,7 @@ export default function ConceptsPage() {
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 sortBy === 'frequency'
                   ? 'bg-forest-500 text-white'
-                  : 'bg-gray-100 dark:bg-stone-800 text-gray-700 dark:text-stone-300 hover:bg-gray-200 dark:hover:bg-stone-700'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
               <TrendingUp className="w-4 h-4 inline mr-1" />
@@ -111,7 +111,7 @@ export default function ConceptsPage() {
               className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                 sortBy === 'alphabetical'
                   ? 'bg-forest-500 text-white'
-                  : 'bg-gray-100 dark:bg-stone-800 text-gray-700 dark:text-stone-300 hover:bg-gray-200 dark:hover:bg-stone-700'
+                  : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
               }`}
             >
               A-Z
@@ -122,7 +122,7 @@ export default function ConceptsPage() {
         {/* Concepts by Topic */}
         {Object.entries(conceptsByTopic).map(([topic, concepts]) => (
           <div key={topic} className="mb-8">
-            <h2 className="font-serif text-2xl font-semibold text-gray-900 dark:text-stone-100 mb-4 capitalize">
+            <h2 className="font-serif text-2xl font-semibold text-gray-900 mb-4 capitalize">
               {topic} ({concepts.length})
             </h2>
             <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -130,21 +130,21 @@ export default function ConceptsPage() {
                 <Link
                   key={name}
                   to={`/concept/${name}`}
-                  className="block p-4 bg-gray-50 dark:bg-stone-800 rounded-lg border border-gray-100 dark:border-stone-700 hover:border-accent-200 dark:hover:border-accent-600 hover:shadow-md transition-all group"
+                  className="block p-4 bg-gray-50 rounded-lg border border-gray-100 hover:border-accent-200 hover:shadow-md transition-all group"
                 >
                   <div className="flex items-start justify-between mb-2">
-                    <h3 className="font-medium text-gray-900 dark:text-stone-100 group-hover:text-accent-600 dark:group-hover:text-accent-400 transition-colors">
+                    <h3 className="font-medium text-gray-900 group-hover:text-accent-600 transition-colors">
                       {name}
                     </h3>
-                    <span className="px-2 py-0.5 text-xs font-semibold bg-accent-100 dark:bg-stone-700 text-accent-700 dark:text-accent-300 rounded-full">
+                    <span className="px-2 py-0.5 text-xs font-semibold bg-accent-100 text-accent-700 rounded-full">
                       {data.count}
                     </span>
                   </div>
-                  <p className="text-sm text-gray-600 dark:text-stone-400">
+                  <p className="text-sm text-gray-600">
                     {data.count} article{data.count !== 1 ? 's' : ''}
                   </p>
                   {Object.keys(data.relatedConcepts).length > 0 && (
-                    <p className="text-xs text-gray-500 dark:text-stone-500 mt-2">
+                    <p className="text-xs text-gray-500 mt-2">
                       Related to {Object.keys(data.relatedConcepts).length} concept{Object.keys(data.relatedConcepts).length !== 1 ? 's' : ''}
                     </p>
                   )}
@@ -155,7 +155,7 @@ export default function ConceptsPage() {
         ))}
 
         {filteredConcepts.length === 0 && (
-          <div className="text-center py-12 text-gray-500 dark:text-stone-400">
+          <div className="text-center py-12 text-gray-500">
             No concepts found matching "{searchQuery}"
           </div>
         )}

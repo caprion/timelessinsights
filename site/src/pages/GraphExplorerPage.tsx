@@ -39,19 +39,19 @@ interface GraphData {
 function CustomNode({ data }: any) {
   const colors = {
     article: {
-      bg: 'bg-blue-100 dark:bg-blue-900/30',
-      border: 'border-blue-300 dark:border-blue-700',
-      text: 'text-blue-900 dark:text-blue-100',
+      bg: 'bg-blue-100',
+      border: 'border-blue-300',
+      text: 'text-blue-900',
     },
     concept: {
-      bg: 'bg-accent-100 dark:bg-accent-900/30',
-      border: 'border-accent-300 dark:border-accent-700',
-      text: 'text-accent-900 dark:text-accent-100',
+      bg: 'bg-accent-100',
+      border: 'border-accent-300',
+      text: 'text-accent-900',
     },
     topic: {
-      bg: 'bg-green-100 dark:bg-green-900/30',
-      border: 'border-green-300 dark:border-green-700',
-      text: 'text-green-900 dark:text-green-100',
+      bg: 'bg-green-100',
+      border: 'border-green-300',
+      text: 'text-green-900',
     },
   };
 
@@ -203,8 +203,8 @@ export default function GraphExplorerPage() {
 
   if (!graphData) {
     return (
-      <div className="min-h-screen bg-white dark:bg-stone-900 flex items-center justify-center">
-        <div className="text-gray-400 dark:text-stone-500">Loading graph...</div>
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-gray-400">Loading graph...</div>
       </div>
     );
   }
@@ -212,18 +212,18 @@ export default function GraphExplorerPage() {
   const topics = ['all', 'mental-models', 'learning', 'leadership', 'decision-making', 'psychology', 'productivity', 'communication', 'investing'];
 
   return (
-    <div className="h-screen bg-white dark:bg-stone-900 flex flex-col">
+    <div className="h-screen bg-white flex flex-col">
       {/* Header */}
-      <div className="border-b border-gray-200 dark:border-stone-700 bg-white dark:bg-stone-900 z-10">
+      <div className="border-b border-gray-200 bg-white z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between mb-4">
             <div className="flex items-center gap-3">
-              <Network className="w-6 h-6 text-accent-600 dark:text-accent-400" />
-              <h1 className="font-serif text-2xl font-bold text-gray-900 dark:text-stone-100">
+              <Network className="w-6 h-6 text-accent-600" />
+              <h1 className="font-serif text-2xl font-bold text-gray-900">
                 Knowledge Graph
               </h1>
             </div>
-            <div className="text-sm text-gray-600 dark:text-stone-400">
+            <div className="text-sm text-gray-600">
               {nodes.length} nodes • {edges.length} connections
             </div>
           </div>
@@ -232,7 +232,7 @@ export default function GraphExplorerPage() {
           <div className="flex flex-wrap gap-3 items-center">
             <div className="flex items-center gap-2">
               <Filter className="w-4 h-4 text-gray-500" />
-              <span className="text-sm font-medium text-gray-700 dark:text-stone-300">View:</span>
+              <span className="text-sm font-medium text-gray-700">View:</span>
             </div>
             <div className="flex gap-2">
               <button
@@ -240,7 +240,7 @@ export default function GraphExplorerPage() {
                 className={`px-3 py-1.5 text-sm rounded-lg font-medium transition-colors ${
                   viewMode === 'concepts'
                     ? 'bg-forest-500 text-white'
-                    : 'bg-gray-100 dark:bg-stone-800 text-gray-700 dark:text-stone-300 hover:bg-gray-200 dark:hover:bg-stone-700'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
                 Concepts
@@ -250,7 +250,7 @@ export default function GraphExplorerPage() {
                 className={`px-3 py-1.5 text-sm rounded-lg font-medium transition-colors ${
                   viewMode === 'articles'
                     ? 'bg-forest-500 text-white'
-                    : 'bg-gray-100 dark:bg-stone-800 text-gray-700 dark:text-stone-300 hover:bg-gray-200 dark:hover:bg-stone-700'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
                 Articles
@@ -260,7 +260,7 @@ export default function GraphExplorerPage() {
                 className={`px-3 py-1.5 text-sm rounded-lg font-medium transition-colors ${
                   viewMode === 'all'
                     ? 'bg-forest-500 text-white'
-                    : 'bg-gray-100 dark:bg-stone-800 text-gray-700 dark:text-stone-300 hover:bg-gray-200 dark:hover:bg-stone-700'
+                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
                 }`}
               >
                 All
@@ -269,12 +269,12 @@ export default function GraphExplorerPage() {
 
             {viewMode !== 'concepts' && (
               <>
-                <div className="h-6 w-px bg-gray-300 dark:bg-stone-700" />
-                <span className="text-sm font-medium text-gray-700 dark:text-stone-300">Topic:</span>
+                <div className="h-6 w-px bg-gray-300" />
+                <span className="text-sm font-medium text-gray-700">Topic:</span>
                 <select
                   value={selectedTopic}
                   onChange={(e) => setSelectedTopic(e.target.value)}
-                  className="px-3 py-1.5 text-sm rounded-lg bg-white dark:bg-stone-800 border border-gray-200 dark:border-stone-700 text-gray-900 dark:text-stone-100 focus:outline-none focus:ring-2 focus:ring-accent-500"
+                  className="px-3 py-1.5 text-sm rounded-lg bg-white border border-gray-200 text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent-500"
                 >
                   {topics.map(topic => (
                     <option key={topic} value={topic}>
@@ -314,20 +314,20 @@ export default function GraphExplorerPage() {
       </div>
 
       {/* Legend */}
-      <div className="absolute bottom-20 left-4 bg-white dark:bg-stone-800 rounded-lg border border-gray-200 dark:border-stone-700 shadow-lg p-3">
-        <div className="text-xs font-semibold text-gray-700 dark:text-stone-300 mb-2">Legend</div>
+      <div className="absolute bottom-20 left-4 bg-white rounded-lg border border-gray-200 shadow-lg p-3">
+        <div className="text-xs font-semibold text-gray-700 mb-2">Legend</div>
         <div className="space-y-1.5 text-xs">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-blue-500"></div>
-            <span className="text-gray-600 dark:text-stone-400">Article</span>
+            <span className="text-gray-600">Article</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-accent-500"></div>
-            <span className="text-gray-600 dark:text-stone-400">Concept</span>
+            <span className="text-gray-600">Concept</span>
           </div>
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full bg-green-500"></div>
-            <span className="text-gray-600 dark:text-stone-400">Topic</span>
+            <span className="text-gray-600">Topic</span>
           </div>
         </div>
       </div>

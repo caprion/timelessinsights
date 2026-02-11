@@ -7,7 +7,7 @@ interface ConceptBadgeProps {
 }
 
 export default function ConceptBadge({ concept, clickable = true, className = '' }: ConceptBadgeProps) {
-  const baseClasses = "inline-block px-3 py-1 text-sm bg-accent-100 dark:bg-stone-700 text-accent-700 dark:text-accent-300 rounded-full transition-colors";
+  const baseClasses = "inline-block px-3 py-1 text-sm bg-accent-100 text-accent-700 rounded-full transition-colors";
   
   if (!clickable) {
     return (
@@ -20,7 +20,7 @@ export default function ConceptBadge({ concept, clickable = true, className = ''
   return (
     <Link
       to={`/concept/${concept}`}
-      className={`${baseClasses} hover:bg-accent-200 dark:hover:bg-stone-600 hover:shadow-sm ${className}`}
+      className={`${baseClasses} hover:bg-accent-200 hover:shadow-sm ${className}`}
       onClick={(e) => e.stopPropagation()}
     >
       {concept}

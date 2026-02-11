@@ -43,7 +43,7 @@ export default function SearchBar({ articles, onSelect, placeholder = "Search ar
     <div className="relative w-full">
       <div className="relative">
         <svg 
-          className={`absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 ${large ? 'w-5 h-5' : 'w-4 h-4'}`}
+          className={`absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 ${large ? 'w-5 h-5' : 'w-4 h-4'}`}
           fill="none" 
           stroke="currentColor" 
           viewBox="0 0 24 24"
@@ -60,22 +60,22 @@ export default function SearchBar({ articles, onSelect, placeholder = "Search ar
           onFocus={() => setIsOpen(true)}
           onBlur={() => setTimeout(() => setIsOpen(false), 200)}
           placeholder={placeholder}
-          className={`w-full bg-white dark:bg-stone-800 border border-gray-200 dark:border-stone-600 rounded-xl pl-11 pr-4 text-gray-900 dark:text-stone-100 placeholder:text-gray-400 dark:placeholder:text-stone-500
-            focus:outline-none focus:ring-2 focus:ring-accent-500/20 dark:focus:ring-accent-400/30 focus:border-accent-500 dark:focus:border-accent-400
+          className={`w-full bg-white border border-gray-200 rounded-xl pl-11 pr-4 text-gray-900 placeholder:text-gray-400
+            focus:outline-none focus:ring-2 focus:ring-accent-500/20 focus:border-accent-500
             ${large ? 'py-4 text-lg' : 'py-3 text-base'}`}
         />
       </div>
       
       {isOpen && results.length > 0 && (
-        <div className="absolute z-50 w-full mt-2 bg-white dark:bg-stone-800 rounded-xl border border-gray-200 dark:border-stone-600 shadow-lg dark:shadow-xl dark:shadow-black/30 overflow-hidden">
+        <div className="absolute z-50 w-full mt-2 bg-white rounded-xl border border-gray-200 shadow-lg overflow-hidden">
           {results.map((result) => (
             <button
               key={result.item.slug}
               onClick={() => handleSelect(result.item.slug)}
-              className="w-full px-4 py-3 text-left hover:bg-gray-50 dark:hover:bg-stone-700 border-b border-gray-100 dark:border-stone-700 last:border-0"
+              className="w-full px-4 py-3 text-left hover:bg-gray-50 border-b border-gray-100 last:border-0"
             >
-              <div className="font-medium text-gray-900 dark:text-stone-100">{result.item.title}</div>
-              <div className="text-sm text-gray-500 dark:text-stone-400 truncate">{result.item.excerpt}</div>
+              <div className="font-medium text-gray-900">{result.item.title}</div>
+              <div className="text-sm text-gray-500 truncate">{result.item.excerpt}</div>
             </button>
           ))}
         </div>

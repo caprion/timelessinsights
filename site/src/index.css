@@ -8,7 +8,7 @@
 }
 
 body {
-  @apply bg-gray-50 dark:bg-stone-900 text-gray-900 dark:text-stone-200 antialiased;
+  @apply bg-gray-50 text-gray-900 antialiased;
   font-family: 'IBM Plex Sans', system-ui, sans-serif;
   background-color: #faf6f0;
 }
@@ -23,23 +23,23 @@ body {
 }
 
 .prose h1 {
-  @apply text-3xl font-serif font-semibold mt-8 mb-4 text-gray-900 dark:text-stone-100;
+  @apply text-3xl font-serif font-semibold mt-8 mb-4 text-gray-900
 }
 
 .prose h2 {
-  @apply text-2xl font-serif font-semibold mt-8 mb-4 text-gray-900 dark:text-stone-100;
+  @apply text-2xl font-serif font-semibold mt-8 mb-4 text-gray-900
 }
 
 .prose h3 {
-  @apply text-xl font-serif font-semibold mt-6 mb-3 text-gray-900 dark:text-stone-100;
+  @apply text-xl font-serif font-semibold mt-6 mb-3 text-gray-900
 }
 
 .prose p {
-  @apply mb-4 leading-relaxed text-gray-800 dark:text-stone-300;
+  @apply mb-4 leading-relaxed text-gray-800
 }
 
 .prose a {
-  @apply text-accent-700 dark:text-accent-300 hover:text-accent-900 dark:hover:text-accent-200 underline;
+  @apply text-accent-700 hover:text-accent-900 underline;
 }
 
 .prose ul, .prose ol {
@@ -59,15 +59,15 @@ body {
 }
 
 .prose blockquote {
-  @apply border-l-4 border-accent-300 dark:border-accent-600 pl-4 italic text-gray-700 dark:text-stone-300 my-4;
+  @apply border-l-4 border-accent-300 pl-4 italic text-gray-700 my-4;
 }
 
 .prose code {
-  @apply bg-gray-100 dark:bg-stone-800 text-gray-900 dark:text-stone-100 px-1.5 py-0.5 rounded text-sm;
+  @apply bg-gray-100 text-gray-900 px-1.5 py-0.5 rounded text-sm;
 }
 
 .prose pre {
-  @apply bg-gray-900 dark:bg-stone-800 text-gray-100 dark:text-stone-100 p-4 rounded-lg overflow-x-auto my-4;
+  @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto my-4;
 }
 
 .prose pre code {
@@ -79,7 +79,7 @@ body {
 }
 
 .prose hr {
-  @apply my-8 border-gray-200 dark:border-gray-700;
+  @apply my-8 border-gray-200
 }
 
 /* Callout/Annotation Styles */
@@ -100,7 +100,7 @@ body {
 }
 
 .callout-content {
-  @apply px-4 pb-4 text-gray-700 dark:text-stone-300;
+  @apply px-4 pb-4 text-gray-700
 }
 
 .callout-content p:last-child {
@@ -109,54 +109,54 @@ body {
 
 /* Highlight - yellow/amber for important passages */
 .callout-highlight {
-  @apply border-amber-400 dark:border-amber-600 bg-amber-50 dark:bg-amber-900/20;
+  @apply border-amber-400 bg-amber-50
 }
 
 .callout-highlight .callout-title {
-  @apply bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300;
+  @apply bg-amber-100 text-amber-800
 }
 
 /* Note - blue for general annotations */
 .callout-note {
-  @apply border-blue-400 dark:border-blue-600 bg-blue-50 dark:bg-blue-900/20;
+  @apply border-blue-400 bg-blue-50
 }
 
 .callout-note .callout-title {
-  @apply bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300;
+  @apply bg-blue-100 text-blue-800
 }
 
 /* Question - accent for things to explore */
 .callout-question {
-  @apply border-accent-400 dark:border-accent-600 bg-red-50 dark:bg-red-900/20;
+  @apply border-accent-400 bg-red-50
 }
 
 .callout-question .callout-title {
-  @apply bg-red-100 dark:bg-red-900/30 text-accent-800 dark:text-accent-300;
+  @apply bg-red-100 text-accent-800
 }
 
 /* Insight - green for personal realizations */
 .callout-insight {
-  @apply border-green-400 dark:border-green-600 bg-green-50 dark:bg-green-900/20;
+  @apply border-green-400 bg-green-50
 }
 
 .callout-insight .callout-title {
-  @apply bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300;
+  @apply bg-green-100 text-green-800
 }
 
 /* Warning - red for cautions/disagreements */
 .callout-warning {
-  @apply border-red-400 dark:border-red-600 bg-red-50 dark:bg-red-900/20;
+  @apply border-red-400 bg-red-50
 }
 
 .callout-warning .callout-title {
-  @apply bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-300;
+  @apply bg-red-100 text-red-800
 }
 
 /* Tip - teal for actionable advice */
 .callout-tip {
-  @apply border-teal-400 dark:border-teal-600 bg-teal-50 dark:bg-teal-900/20;
+  @apply border-teal-400 bg-teal-50
 }
 
 .callout-tip .callout-title {
-  @apply bg-teal-100 dark:bg-teal-900/30 text-teal-800 dark:text-teal-300;
+  @apply bg-teal-100 text-teal-800
 }
