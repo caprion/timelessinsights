@@ -1,6 +1,44 @@
 {
   "articles": [
     {
+      "slug": "making-a-product-that-marl-loves-inverted-passion",
+      "title": "Making a product that Marl loves - Inverted Passion",
+      "excerpt": "Posted on February 15, 2026February 15, 2026Author Paras ChopraPosted in Mental Models, Psychology This essay is part of the series in which I talk about my learnings and insights building a habit...",
+      "source_url": "https://invertedpassion.com/making-a-product-that-marl-loves",
+      "source": "invertedpassion",
+      "author": "Unknown",
+      "date": "2026-02-16",
+      "tags": [
+        "mental-models",
+        "inversion",
+        "thinking",
+        "cognitive-biases",
+        "learning"
+      ],
+      "type": "article",
+      "reading_time": "11 min",
+      "content": "\n# Making a product that Marl loves\n\nPosted on [February 15, 2026February 15, 2026](https://invertedpassion.com/making-a-product-that-marl-loves/)Author [Paras Chopra](https://invertedpassion.com/author/paraschopra/)Posted in [Mental Models](https://invertedpassion.com/category/mental-models/), [Psychology](https://invertedpassion.com/category/psychology/)\n\nThis essay is part of the series in which I talk about **my learnings and insights building a habit coaching app** (Nintee) in 2024. It didn’t ultimately work out because an app has marginal influence in a human’s life (v/s that of friends, family, culture and immediate environment). Most apps that work in the category operate like gyms (charge upfront when the motivation is high, and be okay with high churn). I had raised VC funding for it and later it became clear to me that this wouldn’t be a VC scale business, so I shut it down and returned the remaining funding. Hope the insights learned along the way would turn out to be valuable to others.\n\nThis series comprises of the following essays:\n\n*   [Science of habit building](https://invertedpassion.com/science-of-habit-building/): how habits are formed and broken\n*   Making a product that Marl loves (this one): why well-intentioned apps ultimately become attention-seeking and gamified\n*   The two views of rationality (this one): who we think people are v/s who they really are\n*   How does behavior change happen: frameworks and mental models for human behavior change\n*   How to coach someone: 21 points to keep in mind while coaching someone\n\nSubscribe to the blog if you want to be notified of future essays.\n\n**Get my new essays in your email**  \n\n* * *\n\nWe started building Nintee first as an AI-driven weight loss coach and then as a habit coach. We wanted to change the world by helping people achieve their goals in a methodical fashion. The plan was simple: internalize the [science of habit building](https://invertedpassion.com/science-of-habit-building/) into an app and give people an AI coach for motivation.\n\nAs we surveyed the market, we didn’t find even a single a competitor. Positive news for us? Why couldn’t we find successful habit coaching apps? Were there any successful apps which helped someone become a better person, or pick up a skill? The only name for a successful skill-building app that came up was Duolingo. They made [$700mn+ of revenue](https://www.businessofapps.com/data/duolingo-statistics/) in 2024, so clearly this model could work, right?\n\nAs we studied Duolingo, it became clear that they weren’t a language learning app but rather a [game](https://www.reddit.com/r/duolingo/comments/1oelcq0/duolingo_is_officially_a_game_now/). Reddit is full of stories where people say [they’re addicted to Duolingo but can’t speak the language they’re learning](https://www.reddit.com/r/duolingo/comments/1dv1o93/am_i_actually_learning_or_am_i_just_memorising_a/). Why would Duolingo be optimizing for game-like experience and not for actually teaching a language.\n\nThe answer lies in the fact that the **average marginal user of mobile apps is minimally committed, highly distracted, constantly craving [dopamine hits](https://invertedpassion.com/a-primer-on-dopamine/) and always ready to ditch apps after a microsecond of boredom.** For investor-backed startups and public companies like Duolingo, this average marginal user is the one they end up targeting because that’s where the eternal growth comes from.\n\nSo, it was clear to us that for Nintee, a VC-backed startup, to succeed, we had to build a game for Marl where he feels _his time a better time spent that other casual games or social media_. Because [if we can’t compete against cute cat photos, we’re toast.](https://invertedpassion.com/all-products-compete-with-instagram/)\n\nWe decided we had to build apps that give Marl **meaningful fun** – in retrospect, we should have realized that this was an oxymoron but we still had (naive) hopes that you could make experiences that are both valuable and fun. In retrospect, it became clear that the reason edutainment as a category never took off is because it is neither entertainment nor fun.\n\nBut, for now, let’s dissect Marl.\n\n_Following is my (verbatim) notes from the time period when we were researching who this Marl is and what does he need._\n\n## Who is Marl?\n\n![](https://invertedpassion.com/wp-content/uploads/2026/01/image-3.png)\n\n![](https://invertedpassion.com/wp-content/uploads/2026/01/image.png)\n\nMarl has:\n\n*   Short attention spans\n*   Need for instant gratification / dopamine hits\n*   Aversion to effort of any kind\n\nNote that we are all Marl for most of the day and are largely driven by our evolved animal instincts. Why? Because using our brain is costly/effortful, and we only do so for highly-motivating projects (like job where we get paid).\n\n![](https://invertedpassion.com/wp-content/uploads/2026/01/image-768x1024.jpeg)\n\nWhat about non-Marls? Those who behave logically, rationally and are ready to put e"
+    },
+    {
+      "slug": "science-of-habit-building",
+      "title": "Science of habit building",
+      "excerpt": "Posted on January 25, 2026February 15, 2026Author Paras ChopraPosted in Mental Models, Psychology This essay is part of the series in which I talk about my learnings and insights building a habit...",
+      "source_url": "https://invertedpassion.com/science-of-habit-building/",
+      "source": "invertedpassion",
+      "author": "Author Paras Chopra",
+      "date": "2026-02-16",
+      "tags": [
+        "mental-models",
+        "inversion",
+        "thinking",
+        "decision-making",
+        "learning"
+      ],
+      "type": "article",
+      "reading_time": "6 min",
+      "content": "\n# Science of habit building\n\nPosted on [January 25, 2026February 15, 2026](https://invertedpassion.com/science-of-habit-building/)Author [Paras Chopra](https://invertedpassion.com/author/paraschopra/)Posted in [Mental Models](https://invertedpassion.com/category/mental-models/), [Psychology](https://invertedpassion.com/category/psychology/)\n\nThis essay is part of the series in which I talk about **my learnings and insights building a habit coaching app** (Nintee) in 2024. It didn’t ultimately work out because an app has marginal influence in a human’s life (v/s that of friends, family, culture and immediate environment). Most apps that work in the category operate like gyms (charge upfront when the motivation is high, and be okay with high churn). I had raised VC funding for it and later it became clear to me that this wouldn’t be a VC scale business, so I shut it down and returned the remaining funding. Hope the insights learned along the way would turn out to be valuable to others.\n\nThis series comprises of the following essays:\n\n*   Science of habit building (this one): how habits are formed and broken\n*   [Making a product that Marl loves](https://invertedpassion.com/making-a-product-that-marl-loves/): why well-intentioned apps ultimately become attention-seeking and gamified\n*   The two views of rationality: who we think people are v/s who they really are\n*   How does behavior change happen: frameworks and mental models for human behavior change\n*   How to coach someone: 21 points to keep in mind while coaching someone\n\nSubscribe to the blog if you want to be notified of future essays.\n\n**Get my new essays in your email**  \n\n* * *\n\nHow habits are built or broken is no longer a mystery. Psychologists and neuroscientists have figured out key mechanisms behind habits, and in this note, I want to document whatever I have learned so far (after reading [4 books on habit building](https://twitter.com/paraschopra/status/1645418863373451266?s=20) and many research papers). \n\n## What are habits? \n\nThe definition is actually beautifully simple: \n\n> Repeated rewarding actions performed under stable contexts \n\nLet’s unpack the definition: \n\n*   **Repeated**: habits are formed when the same action is performed multiple times. There’s no magical number though, habit formation can take anywhere from a couple of weeks to couple of months, or even more. \n*   **Rewarding**: habits are much more likely to form if there’s a reward given immediately after the action is performed. (Think of the fresh, minty taste of toothpaste reinforcing the behavior of brushing) \n*   **Stable contexts**: it’s important that context under which the action is performed remains the same, for a behavior to become an automatic habit. Think of watching TV while eating lunch. The cue becomes food, and habit becomes watching TV and reward is, of course, the entertainment. The cue-response is fundamental to habit formation. This is why people advocate habit stacking, where a new habit is stacked after a pre-existing habits. It also explains why we adopt new habits when there is a major change in life (like moving cities or changing jobs) \n\n![](https://invertedpassion.com/wp-content/uploads/2026/01/gemini_Reduced.png)\n\nNano Banana’s attempt at making this funny.\n\n## How to influence habit formation \n\nResearch suggests the following elements aid in forming new habits or breaking existing ones: \n\n*   **Self-vigilance**: Until a habit becomes automatic, continual reminders to one-self to perform an activity \n*   **Change the environment:** make good habits easier to perform (more frequent exposure to cue), while making bad habits harder to perform (less frequent exposure to cue) \n*   **Specific implementation intentions** (for strengthening cue-action loop): deciding if then-else kind of scenarios upfront as specifically and clearly as possible (e.g. when I see the elevator door, I will take the stairs instead; or when I pick up the cigarette, I will immediately break it into pieces and do push-ups)\n    *   Implementation intentions pass the control of behavior to the environment.\n    *   implementation intentions promote goal attainment by helping people get started. \n*   **Repeating the activity the same way each day**: it’s important to keep the context from day-to-day as similar as possible, if a behavior is to be converted into a habit\n*   **Focusing on consistency of repetitions over doing it perfectly**: aiming to make any amount of progress but doing it consistency, instead of aiming to do it perfectly\n*   **Realistic goals first and then increasing difficulty**: deciding to walk 2000 steps daily first, then aiming to increase it gradually to 10000 steps. This is because unrealistic goals fail, cause dissatisfaction and hence make it unlikely for behavior to be repeated \n*   **Rewards and positive reinforcement**: upon each repetition, if there’s a reward (of any kind), it makes the behavior much more likely to be repeated (and hence, much mor"
+    },
+    {
       "slug": "a-technique-for-producing-ideas",
       "title": "A Technique for Producing Ideas",
       "excerpt": "In the foreword to James Webb Young’s book, A Technique for Producing Ideas, Keith Reinhard asks, “How can a book first published in the 1940s be important to today’s creative people on the cutting...",
@@ -73,7 +111,7 @@
       "excerpt": "Recently at Lossfunk, we hosted Shashwat Goel for a talk on how he conducts research. It was fascinating and perspective-shifting. We will release the video soon, but till then, here's my notes on...",
       "source_url": "https://letters.lossfunk.com/p/what-is-research-and-how-to-do-it",
       "source": "letters",
-      "author": "Unknown",
+      "author": "Paras Chopra",
       "date": "2026-01-18",
       "tags": [
         "inversion",
@@ -2096,31 +2134,32 @@
     "thinking"
   ],
   "stats": {
-    "total": 62,
+    "total": 64,
     "bySource": {
       "fs": 59,
+      "invertedpassion": 2,
       "letters": 2,
       "intelligence-curse": 1
     },
     "byTag": {
       "source:fs-blog": 59,
-      "decision-making": 26,
+      "decision-making": 27,
       "compounding": 9,
-      "learning": 41,
+      "learning": 43,
       "buffett": 17,
-      "cognitive-biases": 11,
-      "thinking": 24,
-      "mental-models": 15,
+      "cognitive-biases": 12,
+      "thinking": 26,
+      "mental-models": 17,
       "first-principles": 5,
-      "inversion": 13,
+      "inversion": 15,
       "munger": 19,
       "circle-of-competence": 9,
       "self-awareness": 9,
       "second-order-thinking": 4
     },
     "byType": {
-      "article": 62
+      "article": 64
     }
   },
-  "generated_at": "2026-01-26T13:02:37.513Z"
+  "generated_at": "2026-02-16T16:31:12.428Z"
 }
